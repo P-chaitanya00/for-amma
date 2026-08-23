@@ -1,14 +1,19 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
-<head><meta http-equiv='Cache-Control' content='no-cache, no-store, must-revalidate'><meta http-equiv='Pragma' content='no-cache'><meta http-equiv='Expires' content='0'>
+<head>
   <meta charset="UTF-8">
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
   <title>For My Love Amma (Bebe Kutti) 💖</title>
+  
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+  
   <style>
 :root {
   --baby-pink-soft: #fff2f6; --baby-pink-100: #ffe5ec; --baby-pink-200: #ffc2d1; --baby-pink-300: #ffb3c6;
@@ -22,16 +27,17 @@ html, body { width: 100%; min-height: 100vh; min-height: 100dvh; overflow-x: hid
 .ambient-glow { position: fixed; border-radius: 50%; filter: blur(70px); pointer-events: none; z-index: 0; opacity: 0.55; }
 .glow-1 { width: 280px; height: 280px; background: radial-gradient(circle, #ff8fab 0%, transparent 70%); top: -40px; left: -40px; }
 .glow-2 { width: 300px; height: 300px; background: radial-gradient(circle, #ffb3c6 0%, transparent 70%); bottom: -60px; right: -50px; }
-.screen { position: relative; z-index: 10; width: 100%; max-width: 460px; padding: 14px; display: flex; justify-content: center; align-items: center; transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1); }
+.screen { position: relative; z-index: 10; width: 100%; max-width: 460px; padding: 16px; display: flex; justify-content: center; align-items: center; transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1); }
 .app-container { width: 100%; display: flex; justify-content: center; }
-.screen.hidden-screen { display: none; opacity: 0; transform: scale(0.92) translateY(20px); }
-.screen.active-screen { display: flex; opacity: 1; transform: scale(1) translateY(0); animation: screenFadeIn 0.6s cubic-bezier(0.2, 0.9, 0.3, 1.2) forwards; }
-@keyframes screenFadeIn { 0% { opacity: 0; transform: scale(0.92) translateY(20px); } 100% { opacity: 1; transform: scale(1) translateY(0); } }
+.screen.hidden-screen { display: none !important; opacity: 0; }
+.screen.active-screen { display: flex; opacity: 1; transform: scale(1) translateY(0); animation: screenFadeIn 0.5s ease forwards; }
+@keyframes screenFadeIn { 0% { opacity: 0; transform: scale(0.94) translateY(15px); } 100% { opacity: 1; transform: scale(1) translateY(0); } }
 .glass-card { width: 100%; background: var(--card-bg); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border: 1.5px solid var(--card-border); border-radius: 26px; padding: 24px 18px; text-align: center; box-shadow: var(--card-shadow); position: relative; overflow: hidden; }
 .glass-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 5px; background: linear-gradient(90deg, #ff8fab, #fb6f92, #ff2d60, #ffb3c6); }
 .cute-badge { display: inline-block; background: linear-gradient(135deg, #ffe5ec, #ffc2d1); color: var(--deep-romance); font-size: 12px; font-weight: 800; padding: 4px 14px; border-radius: 20px; border: 1.2px solid var(--rose-pink-400); margin-bottom: 10px; }
 .teddy-wrapper, .teddy-celebration-wrapper { position: relative; display: flex; flex-direction: column; justify-content: center; align-items: center; margin-bottom: 10px; }
 .realistic-teddy { position: relative; display: inline-block; cursor: pointer; transition: transform 0.25s; }
+.realistic-teddy:hover { transform: scale(1.05); }
 .teddy-svg { width: 110px; height: 120px; filter: drop-shadow(0 6px 14px rgba(136, 74, 34, 0.18)); animation: teddyBreathe 3s infinite ease-in-out; }
 .teddy-svg.big-teddy { width: 130px; height: 140px; filter: drop-shadow(0 8px 18px rgba(255, 45, 96, 0.25)); }
 @keyframes teddyBreathe { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-4px); } }
@@ -40,7 +46,7 @@ html, body { width: 100%; min-height: 100vh; min-height: 100dvh; overflow-x: hid
 .beating-heart-group { animation: heartThrob 1.2s infinite ease-in-out; transform-origin: 110px 155px; }
 @keyframes heartThrob { 0%, 100% { transform: scale(1); filter: drop-shadow(0 0 6px rgba(255, 23, 68, 0.5)); } 50% { transform: scale(1.12); filter: drop-shadow(0 0 14px rgba(255, 23, 68, 0.9)); } }
 .floating-heart-bubble { position: absolute; font-size: 18px; animation: floatHeart 3s infinite ease-in-out; }
-.h1 { top: -4px; right: -16px; animation-delay: 0s; } .h2 { top: 35px; left: -18px; animation-delay: 1s; } .h3 { bottom: 8px; right: -18px; animation-delay: 2s; }
+.h1 { top: -4px; right: -16px; animation-delay: 0s; } .h2 { top: 35px; left: -18px; animation-delay: 1s; }
 @keyframes floatHeart { 0%, 100% { transform: translateY(0) rotate(-5deg); } 50% { transform: translateY(-10px) rotate(8deg); } }
 .apology-heading { font-size: 23px; font-weight: 800; color: var(--deep-romance); margin-bottom: 8px; line-height: 1.3; }
 .heart-pulse { display: inline-block; animation: heartPulse 1.2s infinite ease-in-out; }
@@ -58,45 +64,41 @@ html, body { width: 100%; min-height: 100vh; min-height: 100dvh; overflow-x: hid
 ﻿.celebration-badge { display: inline-block; background: linear-gradient(135deg, #ffd700, #ffb703); color: #5c3b00; font-size: 11.5px; font-weight: 800; padding: 4px 14px; border-radius: 20px; margin-bottom: 8px; }
 .love-announcement { font-size: 24px; font-weight: 900; line-height: 1.3; color: var(--crimson-love); margin-bottom: 6px; }
 .love-subtitle { font-size: 13.5px; font-weight: 500; color: var(--text-dark); line-height: 1.5; margin-bottom: 14px; }
-.interactive-section { margin-bottom: 16px; }
-.envelope-wrapper { cursor: pointer; display: inline-block; perspective: 1000px; }
-.envelope { position: relative; width: 230px; height: 130px; background: #ffb3c6; border-radius: 10px; margin: 0 auto; box-shadow: 0 8px 20px rgba(251, 111, 146, 0.3); transition: transform 0.35s ease; }
-.envelope-flap { position: absolute; top: 0; left: 0; border-left: 115px solid transparent; border-right: 115px solid transparent; border-top: 72px solid #ff8fab; transform-origin: top; transition: transform 0.5s ease; z-index: 5; }
-.envelope-pocket { position: absolute; bottom: 0; left: 0; border-left: 115px solid #ffaec0; border-right: 115px solid #ffaec0; border-bottom: 78px solid #ff9ebb; border-top: 52px solid transparent; border-radius: 0 0 10px 10px; z-index: 4; }
-.envelope-letter { position: absolute; bottom: 8px; left: 10px; width: 210px; background: #ffffff; border-radius: 8px; padding: 12px; text-align: left; box-shadow: 0 3px 10px rgba(0,0,0,0.06); transition: transform 0.5s ease, opacity 0.35s; z-index: 3; opacity: 0; }
-.envelope.open .envelope-flap { transform: rotateX(180deg); z-index: 1; }
-.envelope.open .envelope-letter { opacity: 1; transform: translateY(-100px); z-index: 10; box-shadow: 0 10px 25px rgba(251, 111, 146, 0.35); }
-.letter-header { font-size: 13px; font-weight: 800; color: var(--crimson-love); margin-bottom: 5px; }
-.letter-body { font-size: 11.5px; font-weight: 500; line-height: 1.45; color: #4a1932; margin-bottom: 5px; }
-.letter-sign { font-size: 12px; font-weight: 800; color: var(--deep-romance); text-align: right; }
-.tap-hint { font-size: 11.5px; font-weight: 600; color: var(--text-soft); margin-top: 8px; }
-.reasons-wrapper { margin-bottom: 16px; }
-.reasons-heading { font-size: 14.5px; font-weight: 800; color: var(--crimson-love); margin-bottom: 8px; }
+.envelope-trigger-btn { background: linear-gradient(135deg, #ffe5ec, #ffc2d1); border: 1.5px solid var(--rose-pink-400); color: var(--deep-romance); border-radius: 20px; padding: 12px 18px; font-size: 13.5px; font-weight: 700; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 10px; width: 100%; margin-bottom: 14px; box-shadow: 0 4px 14px rgba(251, 111, 146, 0.2); }
+.letter-modal-overlay { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background: rgba(74, 25, 50, 0.6); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); z-index: 1500; display: flex; justify-content: center; align-items: center; padding: 16px; opacity: 0; pointer-events: none; transition: opacity 0.3s ease; }
+.letter-modal-overlay.active { opacity: 1; pointer-events: auto; }
+.letter-popup-card { width: 100%; max-width: 360px; background: #ffffff; border: 2px solid var(--rose-pink-400); border-radius: 24px; padding: 24px 20px; text-align: left; box-shadow: 0 20px 50px rgba(0, 0, 0, 0.25); position: relative; transform: scale(0.88); transition: transform 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+.letter-modal-overlay.active .letter-popup-card { transform: scale(1); }
+.letter-close-btn { position: absolute; top: 12px; right: 12px; background: rgba(255, 179, 198, 0.4); border: none; color: var(--deep-romance); width: 28px; height: 28px; border-radius: 50%; cursor: pointer; display: flex; justify-content: center; align-items: center; font-size: 14px; }
+.letter-header { font-size: 15px; font-weight: 800; color: var(--crimson-love); margin-bottom: 8px; }
+.letter-body { font-size: 13px; font-weight: 500; line-height: 1.6; color: #4a1932; margin-bottom: 12px; }
+.letter-sign { font-size: 13.5px; font-weight: 800; color: var(--deep-romance); text-align: right; }
+.letter-tap-close-hint { font-size: 11px; color: #999; text-align: center; margin-top: 12px; }
+.reasons-wrapper { margin-bottom: 14px; }
+.reasons-heading { font-size: 14px; font-weight: 800; color: var(--crimson-love); margin-bottom: 8px; }
 .reasons-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; }
 .reason-pill { background: rgba(255, 255, 255, 0.92); border: 1.2px solid var(--baby-pink-300); border-radius: 12px; padding: 7px 10px; display: flex; align-items: center; gap: 6px; font-size: 11.5px; font-weight: 700; color: var(--text-dark); }
-.celebration-actions { display: flex; flex-direction: column; gap: 8px; align-items: center; margin-bottom: 10px; }
+.celebration-actions { display: flex; flex-direction: column; gap: 8px; align-items: center; margin-bottom: 8px; }
 .btn-love-burst { background: linear-gradient(135deg, #ff2d60, #e0005a); color: white; width: 100%; max-width: 320px; padding: 12px 18px; font-size: 14.5px; box-shadow: 0 6px 18px rgba(224, 0, 90, 0.35); }
-.btn-replay { background: rgba(255, 255, 255, 0.9); color: var(--text-soft); border: 1.2px solid var(--baby-pink-300); font-size: 12.5px; padding: 6px 16px; }
+.btn-replay { background: rgba(255, 255, 255, 0.9); color: var(--text-soft); border: 1.2px solid var(--baby-pink-300); font-size: 12px; padding: 6px 16px; }
 .footer-note { font-size: 11px; font-weight: 600; color: var(--text-soft); opacity: 0.8; }
-.booboo-modal-overlay { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background: rgba(74, 25, 50, 0.65); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); z-index: 1000; display: flex; justify-content: center; align-items: center; padding: 14px; opacity: 0; pointer-events: none; transition: opacity 0.35s ease; }
+.booboo-modal-overlay { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background: rgba(74, 25, 50, 0.65); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); z-index: 2000; display: flex; justify-content: center; align-items: center; padding: 16px; opacity: 0; pointer-events: none; transition: opacity 0.3s ease; }
 .booboo-modal-overlay.active { opacity: 1; pointer-events: auto; }
-.booboo-card { width: 100%; max-width: 350px; background: #fff8fa; border: 2px solid var(--rose-pink-400); border-radius: 26px; padding: 22px 18px; text-align: center; box-shadow: 0 18px 45px rgba(0, 0, 0, 0.25); position: relative; transform: scale(0.85); transition: transform 0.35s; }
+.booboo-card { width: 100%; max-width: 360px; background: #fff8fa; border: 2px solid var(--rose-pink-400); border-radius: 26px; padding: 22px 16px; text-align: center; box-shadow: 0 20px 50px rgba(0, 0, 0, 0.25); position: relative; transform: scale(0.85); transition: transform 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
 .booboo-modal-overlay.active .booboo-card { transform: scale(1); }
-.booboo-close-btn { position: absolute; top: 12px; right: 12px; background: rgba(255, 179, 198, 0.4); border: none; color: var(--deep-romance); width: 30px; height: 30px; border-radius: 50%; cursor: pointer; display: flex; justify-content: center; align-items: center; font-size: 15px; }
-.booboo-name-badge { display: inline-block; background: linear-gradient(135deg, #ffd6e0, #ffb3c6); color: var(--deep-romance); font-size: 12px; font-weight: 800; padding: 4px 14px; border-radius: 20px; margin-bottom: 10px; }
-.booboo-stage { position: relative; width: 160px; height: 160px; margin: 0 auto 10px; display: flex; justify-content: center; align-items: center; }
-.booboo-svg { width: 100%; height: 100%; cursor: pointer; }
-.booboo-reaching { animation: boobooWaddleReach 1.8s infinite ease-in-out; transform-origin: bottom center; }
-@keyframes boobooWaddleReach { 0%, 100% { transform: translateY(0) rotate(0deg); } 25% { transform: translateY(-7px) rotate(-3deg); } 50% { transform: translateY(0) rotate(0deg); } 75% { transform: translateY(-7px) rotate(3deg); } }
-.booboo-arms-reaching { animation: armReachAction 1.2s infinite ease-in-out; transform-origin: center; }
-@keyframes armReachAction { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.08) translateY(-2px); } }
-.booboo-stage.hugged .booboo-reaching { animation: boobooSqueeze 0.8s ease-in-out; }
-@keyframes boobooSqueeze { 0% { transform: scale(1); } 35% { transform: scale(1.2, 0.85); } 65% { transform: scale(0.9, 1.15); } 100% { transform: scale(1); } }
-.booboo-prompt-action { font-size: 13.5px; font-weight: 700; color: var(--crimson-love); margin-bottom: 12px; line-height: 1.4; }
-.btn-give-hug { background: linear-gradient(135deg, #ff3366, #e0005a); color: white; width: 100%; max-width: 240px; padding: 11px 18px; font-size: 14.5px; box-shadow: 0 6px 18px rgba(224, 0, 90, 0.35); animation: pulseHugBtn 1.8s infinite; }
-@keyframes pulseHugBtn { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.05); } }
-.toast-container { position: fixed; top: 25px; left: 50%; transform: translateX(-50%); z-index: 2000; display: flex; flex-direction: column; gap: 8px; pointer-events: none; }
-.cute-toast { background: rgba(255, 255, 255, 0.97); backdrop-filter: blur(10px); border: 1.5px solid var(--rose-pink-400); color: var(--crimson-love); font-weight: 700; font-size: 13px; padding: 8px 16px; border-radius: 50px; box-shadow: 0 6px 18px rgba(251, 111, 146, 0.3); animation: toastPop 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards; }
+.booboo-close-btn { position: absolute; top: 12px; right: 12px; background: rgba(255, 179, 198, 0.4); border: none; color: var(--deep-romance); width: 28px; height: 28px; border-radius: 50%; cursor: pointer; display: flex; justify-content: center; align-items: center; font-size: 14px; }
+.booboo-title-banner { font-size: 17px; font-weight: 900; color: var(--crimson-love); margin-bottom: 10px; }
+.dual-teddy-stage { position: relative; width: 240px; height: 150px; margin: 0 auto 10px; display: flex; justify-content: center; align-items: center; }
+.booboo-single { position: absolute; left: 65px; width: 110px; height: 120px; transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1); filter: drop-shadow(0 6px 12px rgba(136, 74, 34, 0.15)); }
+.boo-female { position: absolute; right: -80px; opacity: 0; width: 105px; height: 115px; transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1); filter: drop-shadow(0 6px 12px rgba(255, 64, 129, 0.2)); }
+.hug-center-heart { position: absolute; font-size: 26px; opacity: 0; transform: scale(0); transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275); z-index: 10; }
+.dual-teddy-stage.hugged .booboo-single { left: 30px; transform: rotate(12deg) scale(1.04); }
+.dual-teddy-stage.hugged .boo-female { right: 35px; opacity: 1; transform: rotate(-12deg) scale(1.04); }
+.dual-teddy-stage.hugged .hug-center-heart { opacity: 1; transform: scale(1.3) translateY(-18px); animation: heartPulse 1.2s infinite ease-in-out; }
+.booboo-prompt-action { font-size: 13.5px; font-weight: 700; color: var(--crimson-love); margin-bottom: 12px; }
+.btn-give-hug { background: linear-gradient(135deg, #ff3366, #e0005a); color: white; width: 100%; max-width: 240px; padding: 11px 18px; font-size: 14.5px; box-shadow: 0 6px 18px rgba(224, 0, 90, 0.35); }
+.toast-container { position: fixed; top: 25px; left: 50%; transform: translateX(-50%); z-index: 3000; display: flex; flex-direction: column; gap: 8px; pointer-events: none; }
+.cute-toast { background: rgba(255, 255, 255, 0.98); backdrop-filter: blur(10px); border: 1.5px solid var(--rose-pink-400); color: var(--crimson-love); font-weight: 700; font-size: 13px; padding: 8px 16px; border-radius: 50px; box-shadow: 0 6px 18px rgba(251, 111, 146, 0.3); animation: toastPop 0.35s ease forwards; }
 @keyframes toastPop { 0% { transform: translateY(-15px) scale(0.8); opacity: 0; } 100% { transform: translateY(0) scale(1); opacity: 1; } }
 .burst-heart { position: fixed; pointer-events: none; font-size: 20px; z-index: 9999; animation: flyBurst 1.2s ease-out forwards; }
 @keyframes flyBurst { 0% { transform: translate(0, 0) scale(0.6); opacity: 1; } 100% { transform: translate(var(--dx), var(--dy)) scale(1.4) rotate(var(--rot)); opacity: 0; } }
@@ -142,7 +144,7 @@ html, body { width: 100%; min-height: 100vh; min-height: 100dvh; overflow-x: hid
         <h1 class="apology-heading">I am sorry amma <span class="heart-pulse">🥺💔</span></h1>
         <div class="question-card"><p class="question-title">will u accept my sorry ? <span class="emoji-inline">💕🥺</span></p></div>
         <p class="soft-subtext">I promise I never meant to make you upset even a little bit... You are my whole universe and my happiness! 🌸</p>
-        <div class="button-arena">
+        <div class="button-arena" id="buttonArena">
           <button id="yesBtn" class="btn btn-yes"><span class="btn-icon">💖</span><span class="btn-text">YES, I accept!</span></button>
           <button id="noBtn" class="btn btn-no"><span class="btn-icon">🥺</span><span class="btn-text">No</span></button>
         </div>
@@ -182,19 +184,11 @@ html, body { width: 100%; min-height: 100vh; min-height: 100dvh; overflow-x: hid
         </div>
         <h1 class="love-announcement">I love you bebe kutti <span class="emojis">💖🥰🌸</span></h1>
         <p class="love-subtitle">You are my happiest thought, my sweetest dream, and my forever home. I love you more every single second! 💍✨</p>
-        <div class="interactive-section">
-          <div class="envelope-wrapper" id="envelopeWrapper">
-            <div class="envelope" id="envelope">
-              <div class="envelope-flap"></div><div class="envelope-pocket"></div>
-              <div class="envelope-letter">
-                <div class="letter-header">Dear Amma (My Bebe Kutti) 💕,</div>
-                <div class="letter-body">Thank you for being my light, my peace, and my sweetest joy. No matter what happens, my hand will always hold yours. You are truly the most precious gift of my life! 🌸✨</div>
-                <div class="letter-sign">Forever & Always Yours ❤️</div>
-              </div>
-            </div>
-            <p class="tap-hint"><i class="fa-solid fa-envelope-open-heart"></i> Tap envelope to open my letter 💌</p>
-          </div>
-        </div>
+
+        <button id="openLetterBtn" class="envelope-trigger-btn">
+          <i class="fa-solid fa-envelope-open-text"></i> Open My Love Letter For You 💌
+        </button>
+
         <div class="reasons-wrapper">
           <h3 class="reasons-heading">✨ Why You Are My Everything ✨</h3>
           <div class="reasons-grid">
@@ -204,6 +198,7 @@ html, body { width: 100%; min-height: 100vh; min-height: 100dvh; overflow-x: hid
             <div class="reason-pill"><span>💍</span><span>My dream forever and ever</span></div>
           </div>
         </div>
+
         <div class="celebration-actions">
           <button id="sendLoveBtn" class="btn btn-love-burst"><i class="fa-solid fa-heart-circle-bolt"></i> Send Unlimited Kisses & Love! 💋💖</button>
           <button id="replayBtn" class="btn btn-replay"><i class="fa-solid fa-rotate-left"></i> Relive the magic ✨</button>
@@ -213,60 +208,103 @@ html, body { width: 100%; min-height: 100vh; min-height: 100dvh; overflow-x: hid
     </div>
   </section>
 
-  <!-- BOO-BOO HUG MODAL -->
+  <!-- CENTERED POPUP LETTER -->
+  <div id="letterModal" class="letter-modal-overlay">
+    <div class="letter-popup-card" id="letterCard">
+      <button id="closeLetterBtn" class="letter-close-btn"><i class="fa-solid fa-xmark"></i></button>
+      <div class="letter-header">Dear Amma (My Bebe Kutti) 💕,</div>
+      <div class="letter-body">
+        Thank you for being my light, my peace, and my sweetest joy. No matter what happens, my hand will always hold yours, and my heart will always beat your name. You are truly the most precious gift of my life! 🌸✨
+      </div>
+      <div class="letter-sign">Forever & Always Yours ❤️</div>
+      <p class="letter-tap-close-hint">(Tap anywhere outside to close)</p>
+    </div>
+  </div>
+
+  <!-- BOO-BOO DUAL HUG MODAL -->
   <div id="boobooModal" class="booboo-modal-overlay">
-    <div class="booboo-card">
+    <div class="booboo-card" id="boobooCard">
       <button id="closeBoobooBtn" class="booboo-close-btn"><i class="fa-solid fa-xmark"></i></button>
-      <div class="booboo-name-badge">🧸 Boo-Boo is here! 💕</div>
-      <div class="booboo-stage" id="boobooStage">
-        <svg viewBox="0 0 200 200" class="booboo-svg booboo-reaching" id="boobooSvg">
+      <div class="booboo-title-banner" id="boobooBanner">🧸 Boo-Boo is here! 💕</div>
+      <div class="dual-teddy-stage" id="dualTeddyStage">
+        <!-- Boo-Boo -->
+        <svg viewBox="0 0 200 200" class="booboo-single" id="boobooSvg">
           <defs>
-            <radialGradient id="boobooBody" cx="40%" cy="35%" r="70%"><stop offset="0%" stop-color="#ffffff"/><stop offset="70%" stop-color="#fff1f5"/><stop offset="100%" stop-color="#ffdce5"/></radialGradient>
-            <radialGradient id="boobooBlush" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#ff4d79"/><stop offset="100%" stop-color="#ff9ebb00"/></radialGradient>
+            <radialGradient id="bbFur" cx="40%" cy="35%" r="70%"><stop offset="0%" stop-color="#ffffff"/><stop offset="70%" stop-color="#fff0f4"/><stop offset="100%" stop-color="#ffdbe4"/></radialGradient>
+            <radialGradient id="bbBlush" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#ff4d79"/><stop offset="100%" stop-color="#ff9ebb00"/></radialGradient>
           </defs>
-          <circle cx="60" cy="52" r="20" fill="url(#boobooBody)"/><circle cx="60" cy="52" r="10" fill="#ffb3c6"/>
-          <circle cx="140" cy="52" r="20" fill="url(#boobooBody)"/><circle cx="140" cy="52" r="10" fill="#ffb3c6"/>
-          <ellipse cx="100" cy="145" rx="54" ry="46" fill="url(#boobooBody)"/>
-          <ellipse cx="75" cy="185" rx="16" ry="12" fill="url(#boobooBody)"/><ellipse cx="125" cy="185" rx="16" ry="12" fill="url(#boobooBody)"/>
-          <circle cx="100" cy="95" r="50" fill="url(#boobooBody)"/>
-          <circle cx="68" cy="106" r="12" fill="url(#boobooBlush)"/><circle cx="132" cy="106" r="12" fill="url(#boobooBlush)"/>
+          <circle cx="60" cy="52" r="20" fill="url(#bbFur)"/><circle cx="60" cy="52" r="10" fill="#ffb3c6"/>
+          <circle cx="140" cy="52" r="20" fill="url(#bbFur)"/><circle cx="140" cy="52" r="10" fill="#ffb3c6"/>
+          <ellipse cx="100" cy="145" rx="54" ry="46" fill="url(#bbFur)"/>
+          <circle cx="100" cy="95" r="50" fill="url(#bbFur)"/>
+          <circle cx="68" cy="106" r="12" fill="url(#bbBlush)"/><circle cx="132" cy="106" r="12" fill="url(#bbBlush)"/>
           <ellipse cx="74" cy="90" rx="8" ry="11" fill="#2b121e"/><circle cx="71" cy="86" r="4" fill="#ffffff"/>
           <ellipse cx="126" cy="90" rx="8" ry="11" fill="#2b121e"/><circle cx="123" cy="86" r="4" fill="#ffffff"/>
           <ellipse cx="100" cy="104" rx="7" ry="5" fill="#ff8fab"/>
           <path d="M94,110 Q100,118 106,110" stroke="#4a1932" stroke-width="2.5" fill="none" stroke-linecap="round"/>
-          <g class="booboo-arms-reaching">
-            <path d="M55,130 C30,115 20,105 32,95 C42,88 56,110 65,124 Z" fill="url(#boobooBody)"/>
-            <path d="M145,130 C170,115 180,105 168,95 C158,88 144,110 135,124 Z" fill="url(#boobooBody)"/>
-          </g>
+          <path d="M55,130 C30,115 20,105 32,95 C42,88 56,110 65,124 Z" fill="url(#bbFur)"/>
+          <path d="M145,130 C170,115 180,105 168,95 C158,88 144,110 135,124 Z" fill="url(#bbFur)"/>
+        </svg>
+
+        <div class="hug-center-heart" id="hugCenterHeart">💖</div>
+
+        <!-- Boo (Female Bear) -->
+        <svg viewBox="0 0 200 200" class="boo-female" id="booFemaleSvg">
+          <defs>
+            <radialGradient id="booFur" cx="40%" cy="35%" r="70%"><stop offset="0%" stop-color="#fff5f7"/><stop offset="70%" stop-color="#ffe2ec"/><stop offset="100%" stop-color="#ffccd9"/></radialGradient>
+          </defs>
+          <path d="M50,38 Q62,32 68,42 Q62,50 50,42 Q38,50 32,42 Q38,32 50,38" fill="#ff2d60"/><circle cx="50" cy="40" r="4" fill="#ffd700"/>
+          <circle cx="60" cy="52" r="20" fill="url(#booFur)"/><circle cx="60" cy="52" r="10" fill="#ff8fab"/>
+          <circle cx="140" cy="52" r="20" fill="url(#booFur)"/><circle cx="140" cy="52" r="10" fill="#ff8fab"/>
+          <ellipse cx="100" cy="145" rx="54" ry="46" fill="url(#booFur)"/>
+          <circle cx="100" cy="95" r="50" fill="url(#booFur)"/>
+          <circle cx="68" cy="106" r="12" fill="url(#bbBlush)"/><circle cx="132" cy="106" r="12" fill="url(#bbBlush)"/>
+          <ellipse cx="74" cy="90" rx="8" ry="11" fill="#2b121e"/><circle cx="71" cy="86" r="4" fill="#ffffff"/>
+          <path d="M66,80 L62,75 M74,78 L74,72 M82,80 L86,75" stroke="#2b121e" stroke-width="2" stroke-linecap="round"/>
+          <ellipse cx="126" cy="90" rx="8" ry="11" fill="#2b121e"/><circle cx="123" cy="86" r="4" fill="#ffffff"/>
+          <path d="M118,80 L114,75 M126,78 L126,72 M134,80 L138,75" stroke="#2b121e" stroke-width="2" stroke-linecap="round"/>
+          <ellipse cx="100" cy="104" rx="7" ry="5" fill="#ff4d79"/>
+          <path d="M94,110 Q100,118 106,110" stroke="#4a1932" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+          <path d="M55,130 C30,115 20,105 32,95 C42,88 56,110 65,124 Z" fill="url(#booFur)"/>
+          <path d="M145,130 C170,115 180,105 168,95 C158,88 144,110 135,124 Z" fill="url(#booFur)"/>
         </svg>
       </div>
-      <p class="booboo-prompt-action" id="boobooText">*Boo-Boo reaches out with open arms waiting for your warm hug!* 🤗💖</p>
-      <button id="giveHugBtn" class="btn btn-give-hug"><i class="fa-solid fa-hands-holding-child"></i> Hug Boo-Boo! 🤗💕</button>
+
+      <p class="booboo-prompt-action" id="boobooText">*Boo-Boo is reaching out waiting for his sweet hug!* 🤗💖</p>
+      <button id="giveHugBtn" class="btn btn-give-hug"><i class="fa-solid fa-hands-holding-child"></i> Give a Hug! 🤗💕</button>
     </div>
   </div>
 
   <div id="heartBurstLayer"></div>
-
-  <script>
+﻿  <script>
 document.addEventListener('DOMContentLoaded', () => {
   const screen1 = document.getElementById('screen1');
   const screen2 = document.getElementById('screen2');
   const yesBtn = document.getElementById('yesBtn');
   const noBtn = document.getElementById('noBtn');
   const toastContainer = document.getElementById('toastContainer');
-  const envelope = document.getElementById('envelope');
   const sendLoveBtn = document.getElementById('sendLoveBtn');
   const replayBtn = document.getElementById('replayBtn');
   const heartBurstLayer = document.getElementById('heartBurstLayer');
   const teddyInteractive = document.getElementById('teddyInteractive');
+  
+  const openLetterBtn = document.getElementById('openLetterBtn');
+  const letterModal = document.getElementById('letterModal');
+  const letterCard = document.getElementById('letterCard');
+  const closeLetterBtn = document.getElementById('closeLetterBtn');
+
   const boobooModal = document.getElementById('boobooModal');
+  const boobooCard = document.getElementById('boobooCard');
   const closeBoobooBtn = document.getElementById('closeBoobooBtn');
   const giveHugBtn = document.getElementById('giveHugBtn');
-  const boobooStage = document.getElementById('boobooStage');
+  const dualTeddyStage = document.getElementById('dualTeddyStage');
+  const boobooBanner = document.getElementById('boobooBanner');
   const boobooText = document.getElementById('boobooText');
 
   let yesScale = 1;
   let noDodgeCount = 0;
+  let isEvading = false;
+
   const teasingMessages = [
     'Oops! No is not an option! 🙈💖',
     'Nice try amma! But you cannot say No! 🥺✨',
@@ -276,6 +314,7 @@ document.addEventListener('DOMContentLoaded', () => {
     'I will keep chasing your smile forever! 💍✨'
   ];
 
+  /* Floating Hearts Canvas */
   const canvas = document.getElementById('heartCanvas');
   const ctx = canvas.getContext('2d');
   function resizeCanvas() { canvas.width = window.innerWidth; canvas.height = window.innerHeight; }
@@ -311,47 +350,81 @@ document.addEventListener('DOMContentLoaded', () => {
   function animateCanvas() { ctx.clearRect(0, 0, canvas.width, canvas.height); for (let h of hearts) { h.update(); h.draw(); } requestAnimationFrame(animateCanvas); }
   animateCanvas();
 
+  /* STRICT SINGLE TOAST */
   function showToast(text) {
-    const toast = document.createElement('div'); toast.className = 'cute-toast'; toast.textContent = text;
+    toastContainer.innerHTML = '';
+    const toast = document.createElement('div');
+    toast.className = 'cute-toast';
+    toast.textContent = text;
     toastContainer.appendChild(toast);
-    setTimeout(() => { toast.style.transition = 'opacity 0.35s ease, transform 0.35s ease'; toast.style.opacity = '0'; toast.style.transform = 'translateY(-12px)'; setTimeout(() => toast.remove(), 350); }, 2000);
+    setTimeout(() => {
+      toast.style.transition = 'opacity 0.35s ease, transform 0.35s ease';
+      toast.style.opacity = '0';
+      toast.style.transform = 'translateY(-12px)';
+      setTimeout(() => toast.remove(), 350);
+    }, 1800);
   }
 
+  /* DEBOUNCED SINGLE DODGE */
   function evadeNoButton(event) {
-    if (event) { event.preventDefault(); event.stopPropagation(); }
-    noDodgeCount++; noBtn.classList.add('evading'); document.body.appendChild(noBtn);
-    const padding = 20; const btnWidth = noBtn.offsetWidth || 90; const btnHeight = noBtn.offsetHeight || 40;
+    if (event) {
+      event.preventDefault();
+      event.stopPropagation();
+    }
+    if (isEvading) return;
+    isEvading = true;
+    setTimeout(() => { isEvading = false; }, 250);
+
+    noDodgeCount++;
+    noBtn.classList.add('evading');
+    document.body.appendChild(noBtn);
+
+    const padding = 20;
+    const btnWidth = noBtn.offsetWidth || 90;
+    const btnHeight = noBtn.offsetHeight || 40;
     const maxLeft = Math.max(20, window.innerWidth - btnWidth - padding);
     const maxTop = Math.max(20, window.innerHeight - btnHeight - padding);
+
     noBtn.style.position = 'fixed';
     noBtn.style.left = Math.max(padding, Math.floor(Math.random() * maxLeft)) + 'px';
     noBtn.style.top = Math.max(padding, Math.floor(Math.random() * maxTop)) + 'px';
+
     yesScale = Math.min(yesScale + 0.08, 1.5);
     yesBtn.style.transform = 'scale(' + yesScale + ')';
     noBtn.style.transform = 'rotate(' + ((Math.random() - 0.5) * 25) + 'deg)';
+
     showToast(teasingMessages[(noDodgeCount - 1) % teasingMessages.length]);
+
     const yesRect = yesBtn.getBoundingClientRect();
     spawnHeartBurst(yesRect.left + yesRect.width / 2, yesRect.top + yesRect.height / 2, 4);
   }
+
   noBtn.addEventListener('mouseenter', evadeNoButton);
-  noBtn.addEventListener('mouseover', evadeNoButton);
   noBtn.addEventListener('touchstart', evadeNoButton, { passive: false });
   noBtn.addEventListener('click', evadeNoButton);
 
+  /* Heart Bursts */
   const burstEmojis = ['💖', '💕', '🌸', '✨', '🥰', '🧸', '💋'];
   function spawnHeartBurst(x, y, count = 6) {
     for (let i = 0; i < count; i++) {
-      const heart = document.createElement('div'); heart.className = 'burst-heart';
+      const heart = document.createElement('div');
+      heart.className = 'burst-heart';
       heart.textContent = burstEmojis[Math.floor(Math.random() * burstEmojis.length)];
-      const dx = (Math.random() - 0.5) * 140 + 'px'; const dy = -(Math.random() * 90 + 30) + 'px'; const rot = (Math.random() - 0.5) * 90 + 'deg';
-      heart.style.left = x + 'px'; heart.style.top = y + 'px';
-      heart.style.setProperty('--dx', dx); heart.style.setProperty('--dy', dy); heart.style.setProperty('--rot', rot);
-      heartBurstLayer.appendChild(heart); setTimeout(() => heart.remove(), 1200);
+      const dx = (Math.random() - 0.5) * 140 + 'px';
+      const dy = -(Math.random() * 90 + 30) + 'px';
+      const rot = (Math.random() - 0.5) * 90 + 'deg';
+      heart.style.left = x + 'px';
+      heart.style.top = y + 'px';
+      heart.style.setProperty('--dx', dx);
+      heart.style.setProperty('--dy', dy);
+      heart.style.setProperty('--rot', rot);
+      heartBurstLayer.appendChild(heart);
+      setTimeout(() => heart.remove(), 1200);
     }
   }
 
   window.addEventListener('click', (e) => {
-    if (!e.target.closest('#yesBtn') && !e.target.closest('#sendLoveBtn') && !e.target.closest('#giveHugBtn') && !e.target.closest('.booboo-card')) {
+    if (!e.target.closest('#yesBtn') && !e.target.closest('#sendLoveBtn') && !e.target.closest('#giveHugBtn') && !e.target.closest('.booboo-card') && !e.target.closest('.letter-popup-card')) {
       spawnHeartBurst(e.clientX, e.clientY, 3);
     }
   });
@@ -364,65 +437,130 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  /* Transition to Screen 2 */
   function triggerCelebration() {
+    noBtn.style.display = 'none'; // Completely hide No button on Screen 2
+
     if (typeof confetti === 'function') {
       confetti({ particleCount: 75, spread: 70, origin: { y: 0.6 }, colors: ['#ff4d6d', '#ff8fab', '#fb6f92', '#ffd700', '#ffffff'] });
     }
-    screen1.classList.remove('active-screen'); screen1.classList.add('hidden-screen');
+    screen1.classList.remove('active-screen');
+    screen1.classList.add('hidden-screen');
+
     setTimeout(() => {
-      screen2.classList.remove('hidden-screen'); screen2.classList.add('active-screen'); window.scrollTo({ top: 0, behavior: 'smooth' });
+      screen2.classList.remove('hidden-screen');
+      screen2.classList.add('active-screen');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+
+      // Automatically pop up centered love letter with blur backdrop after 900ms
       setTimeout(() => {
-        if (envelope && !envelope.classList.contains('open')) envelope.classList.add('open');
-      }, 1000);
+        letterModal.classList.add('active');
+        const rect = letterCard.getBoundingClientRect();
+        spawnHeartBurst(rect.left + rect.width / 2, rect.top + rect.height / 2, 8);
+      }, 900);
     }, 350);
   }
 
   yesBtn.addEventListener('click', (e) => {
-    const rect = yesBtn.getBoundingClientRect(); spawnHeartBurst(rect.left + rect.width / 2, rect.top + rect.height / 2, 10);
+    const rect = yesBtn.getBoundingClientRect();
+    spawnHeartBurst(rect.left + rect.width / 2, rect.top + rect.height / 2, 10);
     triggerCelebration();
   });
 
-  if (envelope) {
-    envelope.addEventListener('click', () => {
-      envelope.classList.toggle('open');
-      const rect = envelope.getBoundingClientRect(); spawnHeartBurst(rect.left + rect.width / 2, rect.top + rect.height / 2, 6);
+  /* LETTER MODAL INTERACTIONS */
+  if (openLetterBtn) {
+    openLetterBtn.addEventListener('click', () => {
+      letterModal.classList.add('active');
+      const rect = letterCard.getBoundingClientRect();
+      spawnHeartBurst(rect.left + rect.width / 2, rect.top + rect.height / 2, 6);
     });
   }
 
+  if (closeLetterBtn) {
+    closeLetterBtn.addEventListener('click', () => {
+      letterModal.classList.remove('active');
+    });
+  }
+
+  // Click on empty space / backdrop to dismiss letter modal (stays on Screen 2)
+  if (letterModal) {
+    letterModal.addEventListener('click', (e) => {
+      if (!e.target.closest('#letterCard')) {
+        letterModal.classList.remove('active');
+      }
+    });
+  }
+
+  /* BOO-BOO MODAL OPEN */
   if (sendLoveBtn) {
     sendLoveBtn.addEventListener('click', (e) => {
-      const rect = sendLoveBtn.getBoundingClientRect(); spawnHeartBurst(rect.left + rect.width / 2, rect.top + rect.height / 2, 12);
-      if (typeof confetti === 'function') { confetti({ particleCount: 60, spread: 80, origin: { y: 0.7 } }); }
+      const rect = sendLoveBtn.getBoundingClientRect();
+      spawnHeartBurst(rect.left + rect.width / 2, rect.top + rect.height / 2, 12);
+      if (typeof confetti === 'function') {
+        confetti({ particleCount: 60, spread: 80, origin: { y: 0.7 } });
+      }
       boobooModal.classList.add('active');
     });
   }
 
   if (closeBoobooBtn) {
     closeBoobooBtn.addEventListener('click', () => {
-      boobooModal.classList.remove('active'); boobooStage.classList.remove('hugged');
-      boobooText.textContent = '*Boo-Boo reaches out with open arms waiting for your warm hug!* 🤗💖';
+      boobooModal.classList.remove('active');
+      dualTeddyStage.classList.remove('hugged');
+      boobooBanner.textContent = '🧸 Boo-Boo is here! 💕';
+      boobooText.textContent = '*Boo-Boo is reaching out waiting for his sweet hug!* 🤗💖';
     });
   }
 
+  // Dismiss Boo-Boo on backdrop tap
+  if (boobooModal) {
+    boobooModal.addEventListener('click', (e) => {
+      if (!e.target.closest('#boobooCard')) {
+        boobooModal.classList.remove('active');
+      }
+    });
+  }
+
+  /* COMBINED FEMALE HUG ACTION & TITLE: BOO-BOO LOVES BOO */
   function executeHug() {
-    boobooStage.classList.add('hugged');
-    const rect = boobooStage.getBoundingClientRect(); spawnHeartBurst(rect.left + rect.width / 2, rect.top + rect.height / 2, 16);
-    if (typeof confetti === 'function') { confetti({ particleCount: 50, spread: 90, origin: { y: 0.5 } }); }
-    boobooText.textContent = '✨ *Boo-Boo gives you the biggest, warmest, sweetest hug ever!* 🥰💖 Squeeze! 🫂';
-    showToast('🤗 Big warm hug given & received with infinite love! 💖✨');
-    setTimeout(() => { boobooStage.classList.remove('hugged'); }, 1500);
+    dualTeddyStage.classList.add('hugged');
+    const rect = dualTeddyStage.getBoundingClientRect();
+    spawnHeartBurst(rect.left + rect.width / 2, rect.top + rect.height / 2, 20);
+
+    if (typeof confetti === 'function') {
+      confetti({ particleCount: 70, spread: 90, origin: { y: 0.5 }, colors: ['#ff1493', '#ff69b4', '#ff8fab', '#ffd700'] });
+    }
+
+    boobooBanner.textContent = '💖 Boo-Boo loves Boo 👩‍❤️‍👨✨';
+    boobooText.textContent = '✨ *Boo rushes into Boo-Boo’s arms for the sweetest forever hug!* 🥰🫂💖';
+    showToast('👩‍❤️‍👨 Boo-Boo loves Boo! Forever & always! 💖✨');
   }
 
   if (giveHugBtn) giveHugBtn.addEventListener('click', executeHug);
-  if (boobooStage) boobooStage.addEventListener('click', executeHug);
+  if (dualTeddyStage) dualTeddyStage.addEventListener('click', executeHug);
 
+  /* REPLAY */
   if (replayBtn) {
     replayBtn.addEventListener('click', () => {
-      yesScale = 1; noDodgeCount = 0; yesBtn.style.transform = 'scale(1)'; noBtn.classList.remove('evading');
-      noBtn.style.position = ''; noBtn.style.left = ''; noBtn.style.top = ''; noBtn.style.transform = '';
-      if (envelope) envelope.classList.remove('open');
-      screen2.classList.remove('active-screen'); screen2.classList.add('hidden-screen');
-      setTimeout(() => { screen1.classList.remove('hidden-screen'); screen1.classList.add('active-screen'); window.scrollTo({ top: 0, behavior: 'smooth' }); }, 300);
+      yesScale = 1;
+      noDodgeCount = 0;
+      yesBtn.style.transform = 'scale(1)';
+      noBtn.style.display = 'inline-flex';
+      noBtn.classList.remove('evading');
+      noBtn.style.position = '';
+      noBtn.style.left = '';
+      noBtn.style.top = '';
+      noBtn.style.transform = '';
+      letterModal.classList.remove('active');
+      boobooModal.classList.remove('active');
+      dualTeddyStage.classList.remove('hugged');
+      screen2.classList.remove('active-screen');
+      screen2.classList.add('hidden-screen');
+      setTimeout(() => {
+        screen1.classList.remove('hidden-screen');
+        screen1.classList.add('active-screen');
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }, 300);
     });
   }
 });
