@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', () => {
+﻿document.addEventListener('DOMContentLoaded', () => {
   const screen1 = document.getElementById('screen1');
   const screen2 = document.getElementById('screen2');
   const yesBtn = document.getElementById('yesBtn');
@@ -18,15 +18,16 @@ document.addEventListener('DOMContentLoaded', () => {
   let melodyInterval = null;
 
   const teasingMessages = [
-    "Oops! No is not an option! 🙸🡡",
-    "Nice try amma! But you can't say No! 🥺�",
-    "The No button got too shy and ran away! 💅",
-    "Hehehe, only YES is allowed for my queen! 🧩🌶",
-    "Come on amma, click YES already! 💅🥺񟗋🗈",
-    "I will keep chasing your smile forever! 💋✥",
-    "Look how big the YES button is getting! 🌶"
+    'Oops! No is not an option! 🙈💖',
+    'Nice try amma! But you cannot say No! 🥺✨',
+    'The No button got too shy and ran away! 💕',
+    'Hehehe, only YES is allowed for my queen! 🥰🌸',
+    'Come on amma, click YES already! 💖👉👈',
+    'I will keep chasing your smile forever! 💍✨',
+    'Look how big the YES button is getting! 🌸'
   ];
 
+  /* Floating Hearts Canvas */
   const canvas = document.getElementById('heartCanvas');
   const ctx = canvas.getContext('2d');
 
@@ -38,7 +39,7 @@ document.addEventListener('DOMContentLoaded', () => {
   window.addEventListener('resize', resizeCanvas);
 
   const hearts = [];
-  const heartColors = ["#ff8fab", "#ffb3c6", "#ffc2d1", "#fb6f92", "#ff4d6d", "#ffffff"];
+  const heartColors = ['#ff8fab', '#ffb3c6', '#ffc2d1', '#fb6f92', '#ff4d6d', '#ffffff'];
 
   class FloatingHeart {
     constructor() { this.reset(true); }
@@ -90,6 +91,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
   animateCanvas();
 
+  /* Audio Engine */
   function getAudioCtx() {
     if (!audioContext) {
       audioContext = new (window.AudioContext || window.webkitAudioContext)();
@@ -145,8 +147,8 @@ document.addEventListener('DOMContentLoaded', () => {
     if (isAudioPlaying) {
       getAudioCtx();
       musicToggleBtn.classList.add('playing');
-      musicToggleBtn.innerHTML = '<i class="fa-solid fa-volume-high"></i> <span class="music-label">Playing 💕</span>';
-      showToast('🍶 Playing soft romantic chimes! ✥');
+      musicToggleBtn.innerHTML = '<i class="fa-solid fa-volume-high"></i> <span class="music-label">Playing 💖</span>';
+      showToast('🎶 Playing soft romantic chimes! ✨');
       melodyInterval = setInterval(() => {
         const note = musicBoxNotes[noteIndex % musicBoxNotes.length];
         playChime(note, 'sine', 1.0, 0.08);
@@ -173,6 +175,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }, 2000);
   }
 
+  /* Dodging No Button */
   function evadeNoButton(event) {
     if (event) {
       event.preventDefault();
@@ -183,8 +186,8 @@ document.addEventListener('DOMContentLoaded', () => {
     document.body.appendChild(noBtn);
 
     const padding = 25;
-    const btnWidth = noBtn.getBoundingClientRect().width || 120;
-    const btnHeight = noBtn.getBoundingClientRect().height || 50;
+    const btnWidth = noBtn.offsetWidth || 120;
+    const btnHeight = noBtn.offsetHeight || 50;
     const maxLeft = Math.max(20, window.innerWidth - btnWidth - padding);
     const maxTop = Math.max(20, window.innerHeight - btnHeight - padding);
     const randomLeft = Math.max(padding, Math.floor(Math.random() * maxLeft));
@@ -214,9 +217,10 @@ document.addEventListener('DOMContentLoaded', () => {
   noBtn.addEventListener('touchstart', evadeNoButton, { passive: false });
   noBtn.addEventListener('click', evadeNoButton);
 
-  const burstEmojis = ['💅', '💉', '🌶', '✥', '🧩', '🢣', '📋'];
+  /* Heart Bursts */
+  const burstEmojis = ['💖', '💕', '🌸', '✨', '🥰', '🧸', '💋'];
 
-  function spawnHeartBurst+x, y, count = 6) {
+  function spawnHeartBurst(x, y, count = 6) {
     for (let i = 0; i < count; i++) {
       const heart = document.createElement('div');
       heart.className = 'burst-heart';
@@ -245,14 +249,20 @@ document.addEventListener('DOMContentLoaded', () => {
       playSparkleSound();
       const rect = teddyInteractive.getBoundingClientRect();
       spawnHeartBurst(rect.left + rect.width / 2, rect.top + rect.height / 2, 10);
-      showToast('🢣 Teddy hugs you tight and sends big cuddles! <'�|✥');
+      showToast('🧸 Teddy hugs you tight and sends big cuddles! 💖✨');
     });
   }
 
+  /* Transition to Screen 2 */
   function triggerCelebration() {
     playCelebrationFanfare();
     if (typeof confetti === 'function') {
-      confetti({ particleCount: 100, spread: 80, origin: { y: 0.6 }, colors: ["#ff4d6d", "#ff8fab", "#fb6f92", "#ffd700", "#ffffff"] });
+      confetti({
+        particleCount: 100,
+        spread: 80,
+        origin: { y: 0.6 },
+        colors: ['#ff4d6d', '#ff8fab', '#fb6f92', '#ffd700', '#ffffff']
+      });
       setTimeout(() => {
         confetti({ particleCount: 60, angle: 60, spread: 55, origin: { x: 0 } });
         confetti({ particleCount: 60, angle: 120, spread: 55, origin: { x: 1 } });
@@ -298,11 +308,15 @@ document.addEventListener('DOMContentLoaded', () => {
       playSparkleSound();
       const rect = sendLoveBtn.getBoundingClientRect();
       spawnHeartBurst(rect.left + rect.width / 2, rect.top + rect.height / 2, 15);
-
       if (typeof confetti === 'function') {
-        confetti({ particleCount: 75, spread: 100, origin: { y: 0.7 }, colors: ["#ff1493", "#ff69b4", "#ffb6c1", "#ffd700"] });
+        confetti({
+          particleCount: 75,
+          spread: 100,
+          origin: { y: 0.7 },
+          colors: ['#ff1493', '#ff69b4', '#ffb6c1', '#ffd700']
+        });
       }
-      showToast('💥 Millions of kisses & cuddles delivered to you! 📊🧩');
+      showToast('💖 Millions of kisses & cuddles delivered to you! 💋🥰');
     });
   }
 

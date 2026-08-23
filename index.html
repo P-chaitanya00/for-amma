@@ -1,320 +1,273 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>For My Dearest Amma 💅 Bebe Kutti</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <title>For My Love Amma (Bebe Kutti) 💖</title>
   
-  <!-- Clean Modern Normal Font -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&amp;display=swap">
-  
-  <!-- FontAwesome for cute icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  
-  <!-- Canvas Confetti Library -->
   <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
-
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <!-- Floating Hearts Background Canvas -->
   <canvas id="heartCanvas"></canvas>
-
-  <!-- Ambient Glow Effects -->
   <div class="ambient-glow glow-1"></div>
   <div class="ambient-glow glow-2"></div>
   <div class="ambient-glow glow-3"></div>
 
-  <!-- Sound Toggle Button -->
-  <button id="musicToggleBtn" class="floating-music-btn" title="Toggle Romantic Melodies">
+  <button id="musicToggleBtn" class="floating-music-btn" title="Toggle Music">
     <i class="fa-solid fa-music"></i>
     <span class="music-label">Music</span>
   </button>
 
-  <!-- Toast Container -->
   <div id="toastContainer" class="toast-container"></div>
 
-  <!-- ================== SCREEN 1: THE APOLOGY ================= -->
+  <!-- SCREEN 1: THE APOLOGY -->
   <main id="screen1" class="screen active-screen">
-    <div class="glass-card apology-card">
-      <div class="cute-badge">Special Message For You 💝</div>
-      
-      <!-- Realistic Cute Pleading Teddy Bear -->
-      <div class="teddy-wrapper">
-        <div class="realistic-teddy pleading-teddy">
-          <svg viewBox="0 0 200 220" class="teddy-svg">
-            <defs>
-              <radialGradient id="furGrad" cx="40%" cy="35%" r="65%">
-                <stop offset="0%" stop-color="#e8a87c"/>
-                <stop offset="50%" stop-color="#c38154"/>
-                <stop offset="100%" stop-color="#884a22"/>
-              </radialGradient>
-              <radialGradient id="earInner" cx="50%" cy="50%" r="50%">
-                <stop offset="0%" stop-color="#ffd1dc"/>
-                <stop offset="100%" stop-color="#f38ba8"/>
-              </radialGradient>
-              <radialGradient id="snoutGrad" cx="40%" cy="35%" r="60%">
-                <stop offset="0%" stop-color="#fff0db"/>
-                <stop offset="100%" stop-color="#fcd4ad"/>
-              </radialGradient>
-              <radialGradient id="eyeGlint" cx="35%" cy="35%" r="50%">
-                <stop offset="0%" stop-color="#ffffff"/>
-                <stop offset="30%" stop-color="#4a2c11"/>
-                <stop offset="100%" stop-color="#1a0f05"/>
-              </radialGradient>
-              <filter id="softShadow" x="-10%" y="-10%" width="130%" height="130%">
-                <feDropShadow dx="0" dy="8" stdDeviation="6" flood-color="#000" flood-opacity="0.18"/>
-              </filter>
-            </defs>
+    <div class="app-container">
+      <div class="glass-card">
+        <div class="cute-badge"><i class="fa-solid fa-heart"></i> For My Dearest Amma <i class="fa-solid fa-heart"></i></div>
 
-            <!-- Teddy Ears -->
-            <circle cx="55" cy="55" r="26" fill="url(#furGrad)" filter="url(#softShadow)"/>
-            <circle cx="55" cy="55" r="15" fill="url(#earInner)"/>
-            <circle cx="145" cy="55" r="26" fill="url(#furGrad)" filter="url(#softShadow)"/>
-            <circle cx="145" cy="55" r="15" fill="url(#earInner)"/>
+        <!-- Realistic Pleading Teddy Bear -->
+        <div class="teddy-wrapper">
+          <div class="realistic-teddy pleading-teddy">
+            <svg viewBox="0 0 200 220" class="teddy-svg">
+              <defs>
+                <radialGradient id="teddyFur" cx="40%" cy="35%" r="70%">
+                  <stop offset="0%" stop-color="#f1ba97"/>
+                  <stop offset="60%" stop-color="#c9865a"/>
+                  <stop offset="100%" stop-color="#8f4e27"/>
+                </radialGradient>
+                <radialGradient id="teddyMuzzle" cx="40%" cy="35%" r="60%">
+                  <stop offset="0%" stop-color="#fff5de"/>
+                  <stop offset="100%" stop-color="#fcd8bf"/>
+                </radialGradient>
+                <radialGradient id="teddyEars" cx="50%" cy="50%" r="50%">
+                  <stop offset="0%" stop-color="#ffd1dc"/>
+                  <stop offset="100%" stop-color="#fa6090"/>
+                </radialGradient>
+                <radialGradient id="teddyEye" cx="35%" cy="35%" r="50%">
+                  <stop offset="0%" stop-color="#ffffff"/>
+                  <stop offset="25%" stop-color="#40220e"/>
+                  <stop offset="100%" stop-color="#100501"/>
+                </radialGradient>
+                <filter id="shadow" x="-10%" y="-10%" width="130%" height="130%">
+                  <feDropShadow dx="0" dy="8" stdDeviation="6" flood-color="#000" flood-opacity="0.18"/>
+                </filter>
+              </defs>
 
+              <circle cx="55" cy="55" r="26" fill="url(#teddyFur)" filter="url(#shadow)"/>
+              <circle cx="55" cy="55" r="15" fill="url(#teddyEars)"/>
+              <circle cx="145" cy="55" r="26" fill="url(#teddyFur)" filter="url(#shadow)"/>
+              <circle cx="145" cy="55" r="15" fill="url(#teddyEars)"/>
 
-            <!-- Teddy Body -->
-            <ellipse cx="100" cy="150" rx="55" ry="50" fill="url(#furGrad)" filter="url(#softShadow)"/>
-            <ellipse cx="100" cy="150" rx="35" ry="32" fill="url(#snoutGrad)" opacity="0.9"/>
+              <ellipse cx="100" cy="150" rx="55" ry="50" fill="url(#teddyFur)" filter="url(#shadow)"/>
+              <ellipse cx="100" cy="150" rx="35" ry="32" fill="url(#teddyMuzzle)" opacity="0.95"/>
 
-            <!-- Teddy Head -->
-            <circle cx="100" cy="95" r="52" fill="url(#furGrad)" filter="url(#softShadow)"/>
+              <circle cx="100" cy="95" r="52" fill="url(#teddyFur)" filter="url(#shadow)"/>
 
-            <!-- Cute Snout and Cheeks -->
-            <ellipse cx="100" cy="110" rx="26" ry="20" fill="url(#snoutGrad)"/>
-            <ellipse cx="75" cy="112" rx="10" ry="6" fill="#ff8fab" opacity="0.6"/>
-            <ellipse cx="125" cy="112" rx="10" ry="6" fill="#ff8fab" opacity="0.6"/>
+              <ellipse cx="100" cy="110" rx="26" ry="20" fill="url(#teddyMuzzle)"/>
+              <ellipse cx="75" cy="112" rx="10" ry="6" fill="#ff4081b0"/>
+              <ellipse cx="125" cy="112" rx="10" ry="6" fill="#ff4081b0"/>
 
+              <path d="M92,102 Q100,98 108,102 Q100,114 92,102" fill="#3d1802"/>
+              <path d="M100,108 L100,116 Q94,124 88,118 M100,116 Q106,124 112,118" stroke="#3d1802" stroke-width="2.5" fill="none" stroke-linecap="round"/>
 
-            <!-- Cute Nose and Mouth -->
-            <path d="M92,102 Q100,98 108,102 Q100,114 92,102" fill="#4a1e06"/>
-            <path d="M100,108 L100,116 Q94,124 88,118 M100,116 Q106,124 112,118" stroke="#4a1e06" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+              <circle cx="78" cy="88" r="9" fill="url(#teddyEye)"/>
+              <circle cx="75" cy="85" r="3.5" fill="#ffffff"/>
+              <circle cx="80" cy="90" r="1.5" fill="#ffffff"/>
 
+              <circle cx="122" cy="88" r="9" fill="url(#teddyEye)"/>
+              <circle cx="119" cy="85" r="3.5" fill="#ffffff"/>
+              <circle cx="124" cy="90" r="1.5" fill="#ffffff"/>
 
-            <!-- Big Shiny Realistic Eyes -->
-            <circle cx="78" cy="88" r="9" fill="url(#eyeGlint)"/>
-            <circle cx="75" cy="85" r="3.5" fill="#ffffff"/>
-            <circle cx="80" cy="90" r="1.5" fill="#ffffff"/>
-
-            <circle cx="122" cy="88" r="9" fill="url(#eyeGlint)"/>
-            <circle cx="119" cy="85" r="3.5" fill="#ffffff"/>
-            <circle cx="124" cy="90" r="1.5" fill="#ffffff"/>
-
-            <!-- Pleading Paws -->
-            <g class="pleading-paws-anim">
-              <ellipse cx="78" cy="138" rx="15" ry="13" fill="url(#furGrad)" filter="url(#softShadow)"/>
-              <ellipse cx="78" cy="138" rx="8" ry="7" fill="url(#snoutGrad)"/>
-              <ellipse cx="122" cy="138" rx="15" ry="13" fill="url(#furGrad)" filter="url(#softShadow)"/>
-              <ellipse cx="122" cy="138" rx="8" ry="7" fill="url(#snoutGrad)"/>
-            </g>
-          </svg>
-          <div class="floating-mini-heart h1">💕</div>
-          <div class="floating-mini-heart h2">🌶	</div>
-          <div class="floating-mini-heart h3">✅</div>
+              <g class="pleading-paws-anim">
+                <ellipse cx="78" cy="138" rx="15" ry="13" fill="url(#teddyFur)" filter="url(#shadow)"/>
+                <ellipse cx="78" cy="138" rx="8" ry="7" fill="url(#teddyMuzzle)"/>
+                <ellipse cx="122" cy="138" rx="15" ry="13" fill="url(#teddyFur)" filter="url(#shadow)"/>
+                <ellipse cx="122" cy="138" rx="8" ry="7" fill="url(#teddyMuzzle)"/>
+              </g>
+            </svg>
+            <div class="floating-heart-bubble h1">💖</div>
+            <div class="floating-heart-bubble h2">🌸</div>
+            <div class="floating-heart-bubble h3">✨</div>
+          </div>
         </div>
-      </div>
 
+        <!-- Heading & Question -->
+        <h1 class="apology-heading">
+          I am sorry amma <span class="heart-pulse">🥺💔</span>
+        </h1>
 
-      <h1 class="main-title apology-text">
-        I am sorry amma <span class="heart-pulse">🥺💔</span>
-      </h1>
+        <div class="question-card">
+          <p class="question-title">will u accept my sorry ? <span class="emoji-inline">💕🥺</span></p>
+        </div>
 
+        <p class="soft-subtext">
+          I promise I never meant to make you upset even a little bit... You are my whole universe and my happiness! 🌸
+        </p>
 
-      <div class="question-box">
-        <p class="question-text">will u accept my sorry ? 💖🥺</p>
-      </div>
-      
-      <p class="apology-subtext">
-        I promise I never meant to make you upset even for a second... You are my whole universe, my happiness, and my entire world! 🌶
-      </p>
+        <div class="button-arena" id="buttonArena">
+          <button id="yesBtn" class="btn btn-yes">
+            <span class="btn-icon">💖</span>
+            <span class="btn-text">YES, I accept!</span>
+            <span class="sparkle-spark">✨</span>
+          </button>
 
+          <button id="noBtn" class="btn btn-no">
+            <span class="btn-icon">🥺</span>
+            <span class="btn-text">No</span>
+          </button>
+        </div>
 
-      <!-- Action Buttons Container -->
-      <div class="button-arena" id="buttonArena">
-        <button id="yesBtn" class="btn btn-yes">
-          <span class="btn-icon">💅</span>
-          <span class="btn-text">YES, I accept!</span>
-          <span class="sparkle-spark">✅</span>
-        </button>
-
-        <button id="noBtn" class="btn btn-no">
-          <span class="btn-icon">🥺</span>
-          <span class="btn-text">No</span>
-        </button>
-      </div>
-
-
-      <div class="hint-text">
-        <i class="fa-solid fa-sparkles"></i> <em>(Hint: Only one answer is destined for us! 💄)</em>
+        <div class="hint-subtext">
+          <i class="fa-solid fa-sparkles"></i> Hint: Only one answer is destined for us! 💖
+        </div>
       </div>
     </div>
   </main>
 
-  <!-- ================== SCREEN 2: THE CELEBRATION & PROPOSAL ================== -->
+  <!-- SCREEN 2: CELEBRATION & PROPOSAL -->
   <section id="screen2" class="screen hidden-screen">
-    <div class="glass-card celebration-card">
-      <div class="celebration-badge">
-        <i class="fa-solid fa-crown"></i> My Forever Queen & Life <i class="fa-solid fa-crown"></i>
-      </div>
+    <div class="app-container">
+      <div class="glass-card celebration-card">
+        <div class="celebration-badge"><i class="fa-solid fa-crown"></i> My Forever Queen & Life <i class="fa-solid fa-crown"></i></div>
 
+        <!-- Big Realistic Teddy Bear Holding Beating Heart -->
+        <div class="teddy-celebration-wrapper" id="teddyInteractive">
+          <div class="realistic-teddy holding-heart-teddy">
+            <svg viewBox="0 0 220 240" class="teddy-svg big-teddy">
+              <defs>
+                <radialGradient id="teddyFur2" cx="40%" cy="35%" r="70%">
+                  <stop offset="0%" stop-color="#f3bd9d"/>
+                  <stop offset="60%" stop-color="#c9865a"/>
+                  <stop offset="100%" stop-color="#8f4e27"/>
+                </radialGradient>
+                <radialGradient id="heartGlow" cx="35%" cy="35%" r="70%">
+                  <stop offset="0%" stop-color="#ff759d"/>
+                  <stop offset="50%" stop-color="#ff114e"/>
+                  <stop offset="100%" stop-color="#b00027"/>
+                </radialGradient>
+              </defs>
 
-      <!-- Realistic Romantic Teddy Bear Holding Glowing Heart -->
-      <div class="celebration-teddy-container" id="teddyInteractive">
-        <div class="realistic-teddy holding-heart-teddy">
-          <svg viewBox="0 0 220 240" class="teddy-svg big-teddy">
-            <defs>
-              <radialGradient id="furGrad2" cx="40%" cy="35%" r="65%">
-                <stop offset="0%" stop-color="#f3b288"/>
-                <stop offset="50%" stop-color="#c98457"/>
-                <stop offset="100%" stop-color="#8e4c24"/>
-              </radialGradient>
-              <radialGradient id="heartGlow" cx="35%" cy="35%" r="65%">
-                <stop offset="0%" stop-color="#ff6b8b"/>
-                <stop offset="50%" stop-color="#ff1744"/>
-                <stop offset="100%" stop-color="#c5002f"/>
-              </radialGradient>
-            </defs>
+              <circle cx="60" cy="55" r="28" fill="url(#teddyFur2)" filter="url(#shadow)"/>
+              <circle cx="60" cy="55" r="16" fill="url(#teddyEars)"/>
+              <circle cx="160" cy="55" r="28" fill="url(#teddyFur2)" filter="url(#shadow)"/>
+              <circle cx="160" cy="55" r="16" fill="url(#teddyEars)"/>
 
+              <path d="M160,38 Q172,32 178,42 Q172,50 160,42 Q148,50 142,42 Q148,32 160,38" fill="#ff114e"/>
+              <circle cx="160" cy="40" r="4" fill="#ffd700"/>
 
-            <!-- Ears with Bow -->
-            <circle cx="60" cy="55" r="28" fill="url(#furGrad2)" filter="url(#softShadow)"/>
-            <circle cx="60" cy="55" r="16" fill="url(#earInner)"/>
-            <circle cx="160" cy="55" r="28" fill="url(#furGrad2)" filter="url(#softShadow)"/>
-            <circle cx="160" cy="55" r="16" fill="url(#earInner)"/>
+              <ellipse cx="110" cy="155" rx="60" ry="54" fill="url(#teddyFur2)" filter="url(#shadow)"/>
+              <ellipse cx="110" cy="155" rx="38" ry="34" fill="url(#teddyMuzzle)" opacity="0.95"/>
 
-            <!-- Cute Pink Bow on Ear -->
-            <path d="M160,38 Q172,32 178,42 Q172,50 160,42 Q148,50 142,42 Q148,32 160,38" fill="#ff4081"/>
-            <circle cx="160" cy="40" r="4" fill="#ffd700"/>
+              <ellipse cx="65" cy="200" rx="22" ry="16" fill="url(#teddyFur2)" filter="url(#shadow)"/>
+              <ellipse cx="65" cy="200" rx="12" ry="9" fill="url(#teddyEars)"/>
+              <ellipse cx="155" cy="200" rx="22" ry="16" fill="url(#teddyFur2)" filter="url(#shadow)"/>
+              <ellipse cx="155" cy="200" rx="12" ry="9" fill="url(#teddyEars)"/>
 
-            <!-- Body -->
-            <ellipse cx="110" cy="155" rx="60" ry="54" fill="url(#furGrad2)" filter="url(#softShadow)"/>
-            <ellipse cx="110" cy="155" rx="38" ry="34" fill="url(#snoutGrad)" opacity="0.9"/>
+              <circle cx="110" cy="95" r="56" fill="url(#teddyFur2)" filter="url(#shadow)"/>
 
-            <!-- Feet -->
-            <ellipse cx="65" cy="200" rx="22" ry="16" fill="url(#furGrad2)" filter="url(#softShadow)"/>
-            <ellipse cx="65" cy="200" rx="12" ry="9" fill="url(#earInner)"/>
-            <ellipse cx="155" cy="200" rx="22" ry="16" fill="url(#furGrad2)" filter="url(#softShadow)"/>
-            <ellipse cx="155" cy="200" rx="12" ry="9" fill="url(#earInner)"/>
+              <ellipse cx="110" cy="110" rx="28" ry="22" fill="url(#teddyMuzzle)"/>
+              <ellipse cx="80" cy="112" rx="11" ry="7" fill="#ff4081b0"/>
+              <ellipse cx="140" cy="112" rx="11" ry="7" fill="#ff4081b0"/>
 
-            <!-- Head -->
-            <circle cx="110" cy="95" r="56" fill="url(#furGrad2)" filter="url(#softShadow)"/>
+              <circle cx="86" cy="88" r="10" fill="url(#teddyEye)"/>
+              <circle cx="83" cy="84" r="4" fill="#ffffff"/>
+              <circle cx="89" cy="90" r="2" fill="#ffffff"/>
 
-            <!-- Snout and Cheeks -->
-            <ellipse cx="110" cy="110" rx="28" ry="22" fill="url(#snoutGrad)"/>
-            <ellipse cx="80" cy="112" rx="11" ry="7" fill="#ff4081" opacity="0.55"/>
-            <ellipse cx="140" cy="112" rx="11" ry="7" fill="#ff4081" opacity="0.55"/>
+              <circle cx="134" cy="88" r="10" fill="url(#teddyEye)"/>
+              <circle cx="131" cy="84" r="4" fill="#ffffff"/>
+              <circle cx="137" cy="90" r="2" fill="#ffffff"/>
 
-            <!-- Happy Eyes -->
-            <circle cx="86" cy="88" r="10" fill="url(#eyeGlint)"/>
-            <circle cx="83" cy="84" r="4" fill="#ffffff"/>
-            <circle cx="89" cy="90" r="2" fill="#ffffff"/>
+              <path d="M102,102 Q110,98 118,102 Q110,114 102,102" fill="#3d1802"/>
+              <path d="M110,108 L110,116 Q102,126 95,120 M110,116 Q118,126 125,120" stroke="#3d1802" stroke-width="2.8" fill="none" stroke-linecap="round"/>
 
+              <g class="beating-heart-group">
+                <path d="M110,140 C110,115 70,115 70,145 C70,170 110,195 110,195 C110,195 150,170 150,145 C150,115 110,115 110,140 Z" fill="url(#heartGlow)" filter="url(#shadow)"/>
+                <ellipse cx="92" cy="135" rx="8" ry="4" fill="#ffffff" opacity="0.6" transform="rotate(-30 92 135)"/>
+              </g>
 
-            <circle cx="134" cy="88" r="10" fill="url(#eyeGlint)"/>
-            <circle cx="131" cy="84" r="4" fill="#ffffff"/>
-            <circle cx="137" cy="90" r="2" fill="#ffffff"/>
-
-            <!-- Sweet Smile and Nose -->
-            <path d="M102,102 Q110,98 118,102 Q110,114 102,102" fill="#4a1e06"/>
-            <path d="M110,108 L110,116 Q102,126 95,120 M110,116 Q118,126 125,120" stroke="#4a1e06" stroke-width="2.8" fill="none" stroke-linecap="round"/>
-
-
-            <!-- Huge Glowing Love Heart in Arms -->
-            <g class="beating-heart-group">
-              <path d="M110,140 C110,115 70,115 70,145 C70,170 110,195 110,195 C110,195 150,170 150,145 C150,115 110,115 110,140 Z" fill="url(#heartGlow)" filter="url(#softShadow)"/>
-              <ellipse cx="92" cy="135" rx="8" ry="4" fill="#ffffff" opacity="0.5" transform="rotate(-30 92 135)"/>
-            </g>
-
-            <!-- Hugging Paws over Heart -->
-            <ellipse cx="72" cy="155" rx="16" ry="14" fill="url(#furGrad2)" filter="url(#softShadow)"/>
-            <ellipse cx="72" cy="155" rx="9" ry="7" fill="url(#snoutGrad)"/>
-            <ellipse cx="148" cy="155" rx="16" ry="14" fill="url(#furGrad2)" filter="url(#softShadow)"/>
-            <ellipse cx="148" cy="155" rx="9" ry="7" fill="url(#snoutGrad)"/>
-          </svg>
+              <ellipse cx="72" cy="155" rx="16" ry="14" fill="url(#teddyFur2)" filter="url(#shadow)"/>
+              <ellipse cx="72" cy="155" rx="9" ry="7" fill="url(#teddyMuzzle)"/>
+              <ellipse cx="148" cy="155" rx="16" ry="14" fill="url(#teddyFur2)" filter="url(#shadow)"/>
+              <ellipse cx="148" cy="155" rx="9" ry="7" fill="url(#teddyMuzzle)"/>
+            </svg>
+          </div>
+          <p class="teddy-hint"><i class="fa-solid fa-hand-pointer"></i> Tap teddy for extra cuddles! 🧸💖</p>
         </div>
-        <p class="teddy-hint"><i class="fa-solid fa-hand-pointer"></i> Tap teddy for extra cuddles! 🢣󟒥</p>
-      </div>
 
-
-      <!-- Main Animated Hero Announcement (Clean Normal Font) -->
-      <div class="proposal-hero">
         <h1 class="love-announcement">
-          I love you bebe kutti 💅🧩🌶
+          I love you bebe kutti <span class="emojis">💖🥰🌸</span>
         </h1>
 
-
-        <p class="love-quote">
-          You are my happiest thought, my sweetest dream, and my forever home. I love you more and more every single second! 💉,✅
+        <p class="love-subtitle">
+          You are my happiest thought, my sweetest dream, and my forever home. I love you more and more every single second! 💍✨
         </p>
-      </div>
 
-
-      <!-- Interactive Love Envelope -->
-      <div class="interactive-section">
-        <div class="envelope-wrapper" id="envelopeWrapper">
-          <div class="envelope" id="envelope">
-            <div class="envelope-flap"></div>
-            <div class="envelope-pocket"></div>
-            <div class="envelope-letter">
-              <div class="letter-header">Dear Amma (My Bebe Kutti) 💅,</div>
-              <div class="letter-body">
-                Thank you for being my light, my peace, and my sweetest joy. No matter what happens, my hand will always hold yours, and my heart will always beat your name. You are truly the most precious gift of my life! 🌶✅
+        <!-- Interactive Love Letter Envelope -->
+        <div class="interactive-section">
+          <div class="envelope-wrapper" id="envelopeWrapper">
+            <div class="envelope" id="envelope">
+              <div class="envelope-flap"></div>
+              <div class="envelope-pocket"></div>
+              <div class="envelope-letter">
+                <div class="letter-header">Dear Amma (My Bebe Kutti) 💕,</div>
+                <div class="letter-body">
+                  Thank you for being my light, my peace, and my sweetest joy. No matter what happens, my hand will always hold yours, and my heart will always beat your name. You are truly the most precious gift of my life! 🌸✨
+                </div>
+                <div class="letter-sign">Forever & Always Yours ❤️</div>
               </div>
-              <div class="letter-sign">Forever & Always Yours ❤︅</div>
+            </div>
+            <p class="tap-hint" id="envelopeHint"><i class="fa-solid fa-envelope-open-heart"></i> Tap envelope to open my heart letter 💌</p>
+          </div>
+        </div>
+
+        <!-- Sweet Reasons Grid -->
+        <div class="reasons-wrapper">
+          <h3 class="reasons-heading">✨ Why You Are My Everything ✨</h3>
+          <div class="reasons-grid">
+            <div class="reason-pill">
+              <span class="pill-icon">🌸</span>
+              <span>Your sweetest cute smile</span>
+            </div>
+            <div class="reason-pill">
+              <span class="pill-icon">🧸</span>
+              <span>Your warm, caring embrace</span>
+            </div>
+            <div class="reason-pill">
+              <span class="pill-icon">💖</span>
+              <span>The way you brighten my life</span>
+            </div>
+            <div class="reason-pill">
+              <span class="pill-icon">💍</span>
+              <span>My dream forever and ever</span>
             </div>
           </div>
-          <p class="tap-hint" id="envelopeHint"><i class="fa-solid fa-envelope-open-heart"></i> Tap envelope to open my heart letter 💝</p>
         </div>
-      </div>
 
-
-      <!-- Sweet Reasons Grid -->
-      <div class="reasons-wrapper">
-        <h3 class="reasons-heading">✅ Why You Are My Everything ✅</h3>
-        <div class="reasons-grid">
-          <div class="reason-pill">
-            <span class="pill-icon">🌶	</span>
-            <span>Your sweetest cute smile</span>
-          </div>
-          <div class="reason-pill">
-            <span class="pill-icon">🢣</span>
-            <span>Your warm, caring embrace</span>
-          </div>
-          <div class="reasong-pill">
-            <span class="pill-icon">💥</span>
-            <span>The way you brighten my life</span>
-          </div>
-          <div class="reasong-pill">
-            <span class="pill-icon">💉></span>
-            <span>My dream forever and ever</span>
-          </div>
+        <!-- Interactive Actions -->
+        <div class="celebration-actions">
+          <button id="sendLoveBtn" class="btn btn-love-burst">
+            <i class="fa-solid fa-heart-circle-bolt"></i> Send Unlimited Kisses & Love! 💋💖
+          </button>
+          <button id="replayBtn" class="btn btn-replay">
+            <i class="fa-solid fa-rotate-left"></i> Relive the magic ✨
+          </button>
         </div>
-      </div>
 
-
-      <!-- Interactive Love Blast Buttons -->
-      <div class="celebration-actions">
-        <button id="sendLoveBtn" class="btn btn-love-burst">
-          <i class="fa-solid fa-heart-circle-bolt"></i> Send Unlimited Kisses & Love! 💃💥
-        </button>
-        <button id="replayBtn" class="btn btn-replay">
-          <i class="fa-solid fa-rotate-left"></i> Relive the magic ✅
-        </button>
-      </div>
-
-      <div class="footer-note">
-        Made with infinite love & care just for you, my dearest bebe kutti 💥
+        <div class="footer-note">
+          Made with infinite love & care just for you, my dearest bebe kutti 💖
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- Interactive Click Heart Spawner -->
   <div id="heartBurstLayer"></div>
-
 
   <script src="script.js"></script>
 </body>
