@@ -10,7 +10,740 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
-  <link rel="stylesheet" href="style.css">
+  <style>﻿/* ==========================================================================
+   ROMANTIC LOVE THEME - NORMAL CLEAN TYPOGRAPHY & LUXURY BABY PINK
+   ========================================================================== */
+
+:root {
+  --baby-pink-soft: #fff2f6;
+  --baby-pink-100: #ffe5ec;
+  --baby-pink-200: #ffc2d1;
+  --baby-pink-300: #ffb3c6;
+  --rose-pink-400: #ff8fab;
+  --rose-pink-500: #fb6f92;
+  --deep-romance: #ff2d60;
+  --crimson-love: #e0005a;
+  --gold-accent: #ffd700;
+  --text-dark: #4a1932;
+  --text-soft: #7a3254;
+  --card-bg: rgba(255, 245, 248, 0.94);
+  --card-border: rgba(255, 179, 198, 0.7);
+  --card-shadow: 0 20px 50px rgba(251, 111, 146, 0.22), 0 0 35px rgba(255, 194, 209, 0.4);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+  user-select: none;
+  font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
+
+html, body {
+  width: 100%;
+  min-height: 100vh;
+  min-height: 100dvh;
+  overflow-x: hidden;
+  color: var(--text-dark);
+  background: linear-gradient(135deg, #ffeef3 0%, #ffd6e2 35%, #ffc2d4 70%, #ffaec3 100%);
+  background-attachment: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Background Canvas */
+#heartCanvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Ambient Glow Orbs */
+.ambient-glow {
+  position: fixed;
+  border-radius: 50%;
+  filter: blur(80px);
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.6;
+  animation: floatAmbient 12s infinite alternate ease-in-out;
+}
+
+.glow-1 {
+  width: 320px;
+  height: 320px;
+  background: radial-gradient(circle, #ff8fab 0%, transparent 70%);
+  top: -50px;
+  left: -50px;
+}
+
+.glow-2 {
+  width: 380px;
+  height: 380px;
+  background: radial-gradient(circle, #ffb3c6 0%, transparent 70%);
+  bottom: -80px;
+  right: -60px;
+  animation-delay: -5s;
+}
+
+.glow-3 {
+  width: 250px;
+  height: 250px;
+  background: radial-gradient(circle, #ffd1dc 0%, transparent 70%);
+  top: 45%;
+  right: 25%;
+  animation-delay: -8s;
+}
+
+@keyframes floatAmbient {
+  0% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(30px, 40px) scale(1.15); }
+  100% { transform: translate(-20px, 20px) scale(0.9); }
+}
+
+/* Floating Music Button */
+.floating-music-btn {
+  position: fixed;
+  top: 16px;
+  right: 16px;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(10px);
+  border: 2px solid var(--rose-pink-400);
+  color: var(--deep-romance);
+  padding: 8px 16px;
+  border-radius: 50px;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 6px 20px rgba(251, 111, 146, 0.3);
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.floating-music-btn:hover {
+  transform: scale(1.08);
+  background: #ffffff;
+}
+
+.floating-music-btn.playing {
+  background: linear-gradient(135deg, var(--rose-pink-400), var(--deep-romance));
+  color: white;
+  border-color: transparent;
+  animation: pulseMusic 2s infinite;
+}
+
+@keyframes pulseMusic {
+  0%, 100% { box-shadow: 0 0 15px rgba(255, 45, 96, 0.4); }
+  50% { box-shadow: 0 0 28px rgba(255, 45, 96, 0.8); }
+}
+
+/* ==========================================================================
+   SCREENS & MOBILE-FIRST CONTAINER
+   ========================================================================== */
+
+.screen {
+  position: relative;
+  z-index: 10;
+  width: 100%;
+  max-width: 620px;
+  padding: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.app-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.screen.hidden-screen {
+  display: none;
+  opacity: 0;
+  transform: scale(0.9) translateY(30px);
+}
+
+.screen.active-screen {
+  display: flex;
+  opacity: 1;
+  transform: scale(1) translateY(0);
+  animation: screenFadeIn 0.8s cubic-bezier(0.2, 0.9, 0.3, 1.2) forwards;
+}
+
+@keyframes screenFadeIn {
+  0% { opacity: 0; transform: scale(0.9) translateY(25px); }
+  100% { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+.glass-card {
+  width: 100%;
+  background: var(--card-bg);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border: 2px solid var(--card-border);
+  border-radius: 34px;
+  padding: 34px 24px;
+  text-align: center;
+  box-shadow: var(--card-shadow);
+  position: relative;
+  overflow: hidden;
+}
+
+.glass-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 6px;
+  background: linear-gradient(90deg, #ff8fab, #fb6f92, #ff2d60, #ffb3c6);
+}
+
+/* ==========================================================================
+   REALISTIC PLUSH TEDDY BEAR
+   ========================================================================== */
+
+.cute-badge {
+  display: inline-block;
+  background: linear-gradient(135deg, #ffe5ec, #ffc2d1);
+  color: var(--deep-romance);
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+  padding: 6px 18px;
+  border-radius: 30px;
+  border: 1.5px solid var(--rose-pink-400);
+  margin-bottom: 12px;
+  box-shadow: 0 4px 12px rgba(251, 111, 146, 0.2);
+}
+
+.teddy-wrapper, .teddy-celebration-wrapper {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.realistic-teddy {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.realistic-teddy:hover {
+  transform: scale(1.06) translateY(-4px);
+}
+
+.teddy-svg {
+  width: 140px;
+  height: 150px;
+  filter: drop-shadow(0 10px 20px rgba(136, 74, 34, 0.2));
+  animation: teddyBreathe 3s infinite ease-in-out;
+}
+
+.teddy-svg.big-teddy {
+  width: 175px;
+  height: 185px;
+  filter: drop-shadow(0 12px 25px rgba(255, 45, 96, 0.28));
+}
+
+@keyframes teddyBreathe {
+  0%, 100% { transform: translateY(0) scale(1); }
+  50% { transform: translateY(-6px) scale(1.02); }
+}
+
+.pleading-paws-anim {
+  animation: pawsPlead 1.6s infinite ease-in-out;
+  transform-origin: center;
+}
+
+@keyframes pawsPlead {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-4px) scale(1.05); }
+}
+
+.beating-heart-group {
+  animation: heartThrob 1.2s infinite ease-in-out;
+  transform-origin: 110px 155px;
+}
+
+@keyframes heartThrob {
+  0%, 100% { transform: scale(1); filter: drop-shadow(0 0 8px rgba(255, 23, 68, 0.5)); }
+  50% { transform: scale(1.12); filter: drop-shadow(0 0 20px rgba(255, 23, 68, 0.9)); }
+}
+
+.teddy-hint {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--deep-romance);
+  margin-top: 6px;
+  opacity: 0.9;
+}
+
+.floating-heart-bubble {
+  position: absolute;
+  font-size: 22px;
+  animation: floatHeart 3s infinite ease-in-out;
+}
+
+.h1 { top: 0px; right: -20px; animation-delay: 0s; }
+.h2 { top: 45px; left: -25px; animation-delay: 1s; }
+.h3 { bottom: 10px; right: -25px; animation-delay: 2s; }
+
+@keyframes floatHeart {
+  0%, 100% { transform: translateY(0) rotate(-5deg) scale(1); }
+  50% { transform: translateY(-12px) rotate(8deg) scale(1.18); }
+}
+
+/* ==========================================================================
+   NORMAL CLEAN TYPOGRAPHY
+   ========================================================================== */
+
+.apology-heading {
+  font-size: 30px;
+  font-weight: 900;
+  color: var(--deep-romance);
+  margin-bottom: 12px;
+  letter-spacing: -0.5px;
+  line-height: 1.3;
+}
+
+.heart-pulse {
+  display: inline-block;
+  animation: heartPulse 1.2s infinite ease-in-out;
+}
+
+@keyframes heartPulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.22); }
+}
+
+.question-card {
+  background: rgba(255, 255, 255, 0.9);
+  border: 2px solid var(--rose-pink-400);
+  border-radius: 20px;
+  padding: 12px 20px;
+  margin-bottom: 14px;
+  box-shadow: 0 4px 15px rgba(251, 111, 146, 0.15);
+}
+
+.question-title {
+  font-size: 22px;
+  font-weight: 800;
+  color: var(--crimson-love);
+}
+
+.soft-subtext {
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--text-soft);
+  line-height: 1.6;
+  margin-bottom: 24px;
+  max-width: 480px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ==========================================================================
+   BUTTONS
+   ========================================================================== */
+
+.button-arena {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 18px;
+  min-height: 85px;
+  margin-bottom: 16px;
+}
+
+.btn {
+  font-size: 17px;
+  font-weight: 700;
+  border-radius: 50px;
+  padding: 14px 32px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  transition: transform 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.25s ease, background 0.3s;
+  border: none;
+  outline: none;
+}
+
+/* YES BUTTON */
+.btn-yes {
+  background: linear-gradient(135deg, #ff4071 0%, #ff114e 100%);
+  color: #ffffff;
+  box-shadow: 0 8px 25px rgba(255, 17, 78, 0.45), 0 0 15px rgba(255, 179, 198, 0.8);
+  position: relative;
+  z-index: 20;
+  animation: yesGlow 2s infinite alternate;
+}
+
+@keyframes yesGlow {
+  0% { transform: scale(1); box-shadow: 0 8px 25px rgba(255, 17, 78, 0.45); }
+  100% { transform: scale(1.05); box-shadow: 0 12px 32px rgba(255, 17, 78, 0.65), 0 0 25px rgba(255, 64, 113, 0.7); }
+}
+
+.btn-yes:hover {
+  transform: scale(1.1) translateY(-2px);
+  box-shadow: 0 14px 35px rgba(255, 17, 78, 0.7);
+}
+
+.sparkle-spark {
+  animation: sparkleRotate 2.5s infinite linear;
+}
+
+@keyframes sparkleRotate {
+  0% { transform: rotate(0deg) scale(0.9); }
+  50% { transform: rotate(180deg) scale(1.3); }
+  100% { transform: rotate(360deg) scale(0.9); }
+}
+
+/* NO BUTTON */
+.btn-no {
+  background: #ffffff;
+  color: #a37081;
+  border: 2px solid var(--baby-pink-300);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
+  z-index: 50;
+  transition: transform 0.15s ease-out, top 0.2s ease, left 0.2s ease;
+  white-space: nowrap;
+}
+
+.btn-no.evading {
+  position: fixed !important;
+  transition: all 0.22s cubic-bezier(0.2, 0.8, 0.2, 1);
+  box-shadow: 0 10px 25px rgba(251, 111, 146, 0.4);
+  background: #fff5f7;
+  color: var(--rose-pink-500);
+}
+
+.hint-subtext {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-soft);
+  opacity: 0.85;
+}
+
+/* ==========================================================================
+   SCREEN 2: CELEBRATION & LOVE CONFESSION
+   ========================================================================== */
+
+.celebration-card {
+  border-color: rgba(255, 143, 171, 0.85);
+  box-shadow: 0 25px 60px rgba(255, 45, 96, 0.28), 0 0 50px rgba(255, 194, 209, 0.6);
+  max-width: 650px;
+}
+
+.celebration-badge {
+  display: inline-block;
+  background: linear-gradient(135deg, #ffd700, #ffb703);
+  color: #5c3b00;
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+  padding: 7px 22px;
+  border-radius: 30px;
+  margin-bottom: 14px;
+  box-shadow: 0 4px 15px rgba(255, 183, 3, 0.35);
+}
+
+.love-announcement {
+  font-size: 32px;
+  font-weight: 900;
+  line-height: 1.3;
+  color: var(--crimson-love);
+  margin-bottom: 10px;
+  letter-spacing: -0.5px;
+  text-shadow: 0 4px 15px rgba(224, 0, 90, 0.2);
+}
+
+.love-subtitle {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text-dark);
+  line-height: 1.6;
+  margin-bottom: 20px;
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Envelope */
+.interactive-section {
+  margin-bottom: 22px;
+}
+
+.envelope-wrapper {
+  cursor: pointer;
+  display: inline-block;
+  perspective: 1000px;
+}
+
+.envelope {
+  position: relative;
+  width: 280px;
+  height: 160px;
+  background: #ffb3c6;
+  border-radius: 12px;
+  margin: 0 auto;
+  box-shadow: 0 12px 30px rgba(251, 111, 146, 0.35);
+  transition: transform 0.4s ease;
+}
+
+.envelope:hover {
+  transform: translateY(-5px) scale(1.02);
+}
+
+.envelope-flap {
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-left: 140px solid transparent;
+  border-right: 140px solid transparent;
+  border-top: 90px solid #ff8fab;
+  transform-origin: top;
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1), z-index 0.2s;
+  z-index: 5;
+}
+
+.envelope-pocket {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  border-left: 140px solid #ffaec0;
+  border-right: 140px solid #ffaec0;
+  border-bottom: 95px solid #ff9ebb;
+  border-top: 65px solid transparent;
+  border-radius: 0 0 12px 12px;
+  z-index: 4;
+}
+
+.envelope-letter {
+  position: absolute;
+  bottom: 10px;
+  left: 15px;
+  width: 250px;
+  background: #ffffff;
+  border-radius: 10px;
+  padding: 16px;
+  text-align: left;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.4s;
+  z-index: 3;
+  opacity: 0;
+  transform: translateY(0);
+}
+
+.envelope.open .envelope-flap {
+  transform: rotateX(180deg);
+  z-index: 1;
+}
+
+.envelope.open .envelope-letter {
+  opacity: 1;
+  transform: translateY(-130px);
+  z-index: 10;
+  box-shadow: 0 15px 35px rgba(251, 111, 146, 0.4);
+}
+
+.letter-header {
+  font-size: 15px;
+  font-weight: 800;
+  color: var(--crimson-love);
+  margin-bottom: 8px;
+}
+
+.letter-body {
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.5;
+  color: #4a1932;
+  margin-bottom: 8px;
+}
+
+.letter-sign {
+  font-size: 14px;
+  font-weight: 800;
+  color: var(--deep-romance);
+  text-align: right;
+}
+
+.tap-hint {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-soft);
+  margin-top: 10px;
+}
+
+/* Reasons Grid */
+.reasons-wrapper {
+  margin-bottom: 24px;
+}
+
+.reasons-heading {
+  font-size: 17px;
+  font-weight: 800;
+  color: var(--crimson-love);
+  margin-bottom: 14px;
+}
+
+.reasons-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+
+.reason-pill {
+  background: rgba(255, 255, 255, 0.9);
+  border: 1.5px solid var(--baby-pink-300);
+  border-radius: 18px;
+  padding: 10px 14px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--text-dark);
+  box-shadow: 0 4px 12px rgba(251, 111, 146, 0.12);
+  transition: transform 0.25s ease, background 0.25s;
+}
+
+.reason-pill:hover {
+  transform: translateY(-3px) scale(1.03);
+  background: #ffffff;
+  border-color: var(--rose-pink-400);
+}
+
+.pill-icon {
+  font-size: 18px;
+}
+
+/* Actions */
+.celebration-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.btn-love-burst {
+  background: linear-gradient(135deg, #ff2d60, #e0005a);
+  color: white;
+  width: 100%;
+  max-width: 380px;
+  padding: 14px 24px;
+  box-shadow: 0 8px 25px rgba(224, 0, 90, 0.4);
+}
+
+.btn-love-burst:hover {
+  transform: scale(1.04);
+  box-shadow: 0 12px 30px rgba(224, 0, 90, 0.6);
+}
+
+.btn-replay {
+  background: rgba(255, 255, 255, 0.85);
+  color: var(--text-soft);
+  border: 1.5px solid var(--baby-pink-300);
+  font-size: 14px;
+  padding: 8px 20px;
+}
+
+.btn-replay:hover {
+  background: #ffffff;
+  color: var(--deep-romance);
+}
+
+.footer-note {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-soft);
+  opacity: 0.8;
+  margin-top: 10px;
+}
+
+/* Toast */
+.toast-container {
+  position: fixed;
+  top: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 999;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  pointer-events: none;
+}
+
+.cute-toast {
+  background: rgba(255, 255, 255, 0.96);
+  backdrop-filter: blur(10px);
+  border: 2px solid var(--rose-pink-400);
+  color: var(--crimson-love);
+  font-weight: 700;
+  font-size: 14px;
+  padding: 10px 22px;
+  border-radius: 50px;
+  box-shadow: 0 8px 25px rgba(251, 111, 146, 0.35);
+  animation: toastPop 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
+@keyframes toastPop {
+  0% { transform: translateY(-20px) scale(0.7); opacity: 0; }
+  100% { transform: translateY(0) scale(1); opacity: 1; }
+}
+
+/* Interactive Heart Burst */
+.burst-heart {
+  position: fixed;
+  pointer-events: none;
+  font-size: 24px;
+  z-index: 9999;
+  animation: flyBurst 1.2s ease-out forwards;
+}
+
+@keyframes flyBurst {
+  0% { transform: translate(0, 0) scale(0.6) rotate(0deg); opacity: 1; }
+  100% { transform: translate(var(--dx), var(--dy)) scale(1.6) rotate(var(--rot)); opacity: 0; }
+}
+
+@media (max-width: 600px) {
+  .screen { padding: 12px; }
+  .glass-card { padding: 26px 16px; border-radius: 26px; }
+  .apology-heading { font-size: 25px; }
+  .love-announcement { font-size: 26px; }
+  .question-title { font-size: 19px; }
+  .button-arena { gap: 12px; }
+  .btn { font-size: 16px; padding: 12px 22px; }
+  .reasons-grid { grid-template-columns: 1fr; }
+  .teddy-svg { width: 125px; height: 135px; }
+  .teddy-svg.big-teddy { width: 150px; height: 160px; }
+  .envelope { width: 240px; height: 140px; }
+  .envelope-flap { border-left-width: 120px; border-right-width: 120px; border-top-width: 80px; }
+  .envelope-pocket { border-left-width: 120px; border-right-width: 120px; border-bottom-width: 80px; border-top-width: 55px; }
+  .envelope-letter { width: 216px; left: 12px; }
+  .envelope.open .envelope-letter { transform: translateY(-110px); }
+}
+</style>
 </head>
 <body>
 
@@ -269,6 +1002,350 @@
 
   <div id="heartBurstLayer"></div>
 
-  <script src="script.js"></script>
+  <script>﻿document.addEventListener('DOMContentLoaded', () => {
+  const screen1 = document.getElementById('screen1');
+  const screen2 = document.getElementById('screen2');
+  const yesBtn = document.getElementById('yesBtn');
+  const noBtn = document.getElementById('noBtn');
+  const toastContainer = document.getElementById('toastContainer');
+  const envelope = document.getElementById('envelope');
+  const sendLoveBtn = document.getElementById('sendLoveBtn');
+  const replayBtn = document.getElementById('replayBtn');
+  const musicToggleBtn = document.getElementById('musicToggleBtn');
+  const heartBurstLayer = document.getElementById('heartBurstLayer');
+  const teddyInteractive = document.getElementById('teddyInteractive');
+
+  let yesScale = 1;
+  let noDodgeCount = 0;
+  let isAudioPlaying = false;
+  let audioContext = null;
+  let melodyInterval = null;
+
+  const teasingMessages = [
+    'Oops! No is not an option! 🙈💖',
+    'Nice try amma! But you cannot say No! 🥺✨',
+    'The No button got too shy and ran away! 💕',
+    'Hehehe, only YES is allowed for my queen! 🥰🌸',
+    'Come on amma, click YES already! 💖👉👈',
+    'I will keep chasing your smile forever! 💍✨',
+    'Look how big the YES button is getting! 🌸'
+  ];
+
+  /* Floating Hearts Canvas */
+  const canvas = document.getElementById('heartCanvas');
+  const ctx = canvas.getContext('2d');
+
+  function resizeCanvas() {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+  }
+  resizeCanvas();
+  window.addEventListener('resize', resizeCanvas);
+
+  const hearts = [];
+  const heartColors = ['#ff8fab', '#ffb3c6', '#ffc2d1', '#fb6f92', '#ff4d6d', '#ffffff'];
+
+  class FloatingHeart {
+    constructor() { this.reset(true); }
+    reset(initial = false) {
+      this.x = Math.random() * canvas.width;
+      this.y = initial ? Math.random() * canvas.height : canvas.height + 20;
+      this.size = Math.random() * 16 + 8;
+      this.speedY = Math.random() * 1.2 + 0.5;
+      this.speedX = Math.sin(Math.random() * Math.PI) * 0.8;
+      this.opacity = Math.random() * 0.6 + 0.2;
+      this.color = heartColors[Math.floor(Math.random() * heartColors.length)];
+      this.rotation = Math.random() * Math.PI * 2;
+      this.rotSpeed = (Math.random() - 0.5) * 0.02;
+    }
+    draw() {
+      ctx.save();
+      ctx.translate(this.x, this.y);
+      ctx.rotate(this.rotation);
+      ctx.globalAlpha = this.opacity;
+      ctx.fillStyle = this.color;
+      const s = this.size / 20;
+      ctx.beginPath();
+      ctx.moveTo(0, -5 * s);
+      ctx.bezierCurveTo(-10 * s, -20 * s, -25 * s, 0, 0, 20 * s);
+      ctx.bezierCurveTo(25 * s, 0, 10 * s, -20 * s, 0, -5 * s);
+      ctx.fill();
+      ctx.restore();
+    }
+    update() {
+      this.y -= this.speedY;
+      this.x += this.speedX + Math.sin(this.y * 0.01) * 0.4;
+      this.rotation += this.rotSpeed;
+      if (this.y < -30 || this.x < -30 || this.x > canvas.width + 30) {
+        this.reset();
+      }
+    }
+  }
+
+  const heartCount = window.innerWidth < 600 ? 25 : 45;
+  for (let i = 0; i < heartCount; i++) hearts.push(new FloatingHeart());
+
+  function animateCanvas() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    for (let heart of hearts) {
+      heart.update();
+      heart.draw();
+    }
+    requestAnimationFrame(animateCanvas);
+  }
+  animateCanvas();
+
+  /* Audio Engine */
+  function getAudioCtx() {
+    if (!audioContext) {
+      audioContext = new (window.AudioContext || window.webkitAudioContext)();
+    }
+    if (audioContext.state === 'suspended') {
+      audioContext.resume();
+    }
+    return audioContext;
+  }
+
+  function playChime(freq, type = 'sine', duration = 0.6, gainLevel = 0.15) {
+    try {
+      const actx = getAudioCtx();
+      const osc = actx.createOscillator();
+      const gain = actx.createGain();
+      osc.type = type;
+      osc.frequency.setValueAtTime(freq, actx.currentTime);
+      gain.gain.setValueAtTime(gainLevel, actx.currentTime);
+      gain.gain.exponentialRampToValueAtTime(0.001, actx.currentTime + duration);
+      osc.connect(gain);
+      gain.connect(actx.destination);
+      osc.start();
+      osc.stop(actx.currentTime + duration);
+    } catch (e) {}
+  }
+
+  function playSparkleSound() {
+    const notes = [523.25, 659.25, 783.99, 1046.50];
+    notes.forEach((freq, idx) => {
+      setTimeout(() => playChime(freq, 'triangle', 0.5, 0.12), idx * 70);
+    });
+  }
+
+  function playCelebrationFanfare() {
+    const melody = [
+      { f: 523.25, d: 0.2 },
+      { f: 659.25, d: 0.2 },
+      { f: 783.99, d: 0.25 },
+      { f: 1046.50, d: 0.6 },
+      { f: 880.00, d: 0.2 },
+      { f: 1046.50, d: 0.8 }
+    ];
+    melody.forEach((item, idx) => {
+      setTimeout(() => playChime(item.f, 'sine', item.d, 0.2), idx * 160);
+    });
+  }
+
+  const musicBoxNotes = [523.25, 587.33, 659.25, 783.99, 880.00, 1046.50, 783.99, 659.25];
+  let noteIndex = 0;
+
+  function toggleMusic() {
+    isAudioPlaying = !isAudioPlaying;
+    if (isAudioPlaying) {
+      getAudioCtx();
+      musicToggleBtn.classList.add('playing');
+      musicToggleBtn.innerHTML = '<i class="fa-solid fa-volume-high"></i> <span class="music-label">Playing 💖</span>';
+      showToast('🎶 Playing soft romantic chimes! ✨');
+      melodyInterval = setInterval(() => {
+        const note = musicBoxNotes[noteIndex % musicBoxNotes.length];
+        playChime(note, 'sine', 1.0, 0.08);
+        noteIndex++;
+      }, 420);
+    } else {
+      musicToggleBtn.classList.remove('playing');
+      musicToggleBtn.innerHTML = '<i class="fa-solid fa-music"></i> <span class="music-label">Music</span>';
+      if (melodyInterval) clearInterval(melodyInterval);
+    }
+  }
+  musicToggleBtn.addEventListener('click', toggleMusic);
+
+  function showToast(text) {
+    const toast = document.createElement('div');
+    toast.className = 'cute-toast';
+    toast.textContent = text;
+    toastContainer.appendChild(toast);
+    setTimeout(() => {
+      toast.style.transition = 'opacity 0.4s ease, transform 0.4s ease';
+      toast.style.opacity = '0';
+      toast.style.transform = 'translateY(-15px)';
+      setTimeout(() => toast.remove(), 400);
+    }, 2000);
+  }
+
+  /* Dodging No Button */
+  function evadeNoButton(event) {
+    if (event) {
+      event.preventDefault();
+      event.stopPropagation();
+    }
+    noDodgeCount++;
+    noBtn.classList.add('evading');
+    document.body.appendChild(noBtn);
+
+    const padding = 25;
+    const btnWidth = noBtn.offsetWidth || 120;
+    const btnHeight = noBtn.offsetHeight || 50;
+    const maxLeft = Math.max(20, window.innerWidth - btnWidth - padding);
+    const maxTop = Math.max(20, window.innerHeight - btnHeight - padding);
+    const randomLeft = Math.max(padding, Math.floor(Math.random() * maxLeft));
+    const randomTop = Math.max(padding, Math.floor(Math.random() * maxTop));
+
+    noBtn.style.position = 'fixed';
+    noBtn.style.left = randomLeft + 'px';
+    noBtn.style.top = randomTop + 'px';
+
+    yesScale = Math.min(yesScale + 0.08, 1.6);
+    yesBtn.style.transform = 'scale(' + yesScale + ')';
+    yesBtn.style.boxShadow = '0 10px 30px rgba(255, 26, 83, ' + (0.4 + (yesScale - 1) * 0.4) + ')';
+
+    const randomRotation = (Math.random() - 0.5) * 25;
+    noBtn.style.transform = 'rotate(' + randomRotation + 'deg)';
+    playChime(350 + Math.random() * 200, 'triangle', 0.2, 0.1);
+
+    const msg = teasingMessages[(noDodgeCount - 1) % teasingMessages.length];
+    showToast(msg);
+
+    const yesRect = yesBtn.getBoundingClientRect();
+    spawnHeartBurst(yesRect.left + yesRect.width / 2, yesRect.top + yesRect.height / 2, 4);
+  }
+
+  noBtn.addEventListener('mouseenter', evadeNoButton);
+  noBtn.addEventListener('mouseover', evadeNoButton);
+  noBtn.addEventListener('touchstart', evadeNoButton, { passive: false });
+  noBtn.addEventListener('click', evadeNoButton);
+
+  /* Heart Bursts */
+  const burstEmojis = ['💖', '💕', '🌸', '✨', '🥰', '🧸', '💋'];
+
+  function spawnHeartBurst(x, y, count = 6) {
+    for (let i = 0; i < count; i++) {
+      const heart = document.createElement('div');
+      heart.className = 'burst-heart';
+      heart.textContent = burstEmojis[Math.floor(Math.random() * burstEmojis.length)];
+      const dx = (Math.random() - 0.5) * 160 + 'px';
+      const dy = -(Math.random() * 120 + 40) + 'px';
+      const rot = (Math.random() - 0.5) * 90 + 'deg';
+      heart.style.left = x + 'px';
+      heart.style.top = y + 'px';
+      heart.style.setProperty('--dx', dx);
+      heart.style.setProperty('--dy', dy);
+      heart.style.setProperty('--rot', rot);
+      heartBurstLayer.appendChild(heart);
+      setTimeout(() => heart.remove(), 1200);
+    }
+  }
+
+  window.addEventListener('click', (e) => {
+    if (!e.target.closest('#yesBtn') && !e.target.closest('#sendLoveBtn') && !e.target.closest('#teddyInteractive')) {
+      spawnHeartBurst(e.clientX, e.clientY, 3);
+    }
+  });
+
+  if (teddyInteractive) {
+    teddyInteractive.addEventListener('click', (e) => {
+      playSparkleSound();
+      const rect = teddyInteractive.getBoundingClientRect();
+      spawnHeartBurst(rect.left + rect.width / 2, rect.top + rect.height / 2, 10);
+      showToast('🧸 Teddy hugs you tight and sends big cuddles! 💖✨');
+    });
+  }
+
+  /* Transition to Screen 2 */
+  function triggerCelebration() {
+    playCelebrationFanfare();
+    if (typeof confetti === 'function') {
+      confetti({
+        particleCount: 100,
+        spread: 80,
+        origin: { y: 0.6 },
+        colors: ['#ff4d6d', '#ff8fab', '#fb6f92', '#ffd700', '#ffffff']
+      });
+      setTimeout(() => {
+        confetti({ particleCount: 60, angle: 60, spread: 55, origin: { x: 0 } });
+        confetti({ particleCount: 60, angle: 120, spread: 55, origin: { x: 1 } });
+      }, 250);
+    }
+
+    screen1.classList.remove('active-screen');
+    screen1.classList.add('hidden-screen');
+
+    setTimeout(() => {
+      screen2.classList.remove('hidden-screen');
+      screen2.classList.add('active-screen');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+
+      setTimeout(() => {
+        if (envelope && !envelope.classList.contains('open')) {
+          envelope.classList.add('open');
+          playSparkleSound();
+          const rect = envelope.getBoundingClientRect();
+          spawnHeartBurst(rect.left + rect.width / 2, rect.top + rect.height / 2, 8);
+        }
+      }, 1200);
+    }, 400);
+  }
+
+  yesBtn.addEventListener('click', (e) => {
+    const rect = yesBtn.getBoundingClientRect();
+    spawnHeartBurst(rect.left + rect.width / 2, rect.top + rect.height / 2, 12);
+    triggerCelebration();
+  });
+
+  if (envelope) {
+    envelope.addEventListener('click', () => {
+      envelope.classList.toggle('open');
+      playSparkleSound();
+      const rect = envelope.getBoundingClientRect();
+      spawnHeartBurst(rect.left + rect.width / 2, rect.top + rect.height / 2, 8);
+    });
+  }
+
+  if (sendLoveBtn) {
+    sendLoveBtn.addEventListener('click', (e) => {
+      playSparkleSound();
+      const rect = sendLoveBtn.getBoundingClientRect();
+      spawnHeartBurst(rect.left + rect.width / 2, rect.top + rect.height / 2, 15);
+      if (typeof confetti === 'function') {
+        confetti({
+          particleCount: 75,
+          spread: 100,
+          origin: { y: 0.7 },
+          colors: ['#ff1493', '#ff69b4', '#ffb6c1', '#ffd700']
+        });
+      }
+      showToast('💖 Millions of kisses & cuddles delivered to you! 💋🥰');
+    });
+  }
+
+  if (replayBtn) {
+    replayBtn.addEventListener('click', () => {
+      yesScale = 1;
+      noDodgeCount = 0;
+      yesBtn.style.transform = 'scale(1)';
+      yesBtn.style.boxShadow = '';
+      noBtn.classList.remove('evading');
+      noBtn.style.position = '';
+      noBtn.style.left = '';
+      noBtn.style.top = '';
+      noBtn.style.transform = '';
+      if (envelope) envelope.classList.remove('open');
+      screen2.classList.remove('active-screen');
+      screen2.classList.add('hidden-screen');
+      setTimeout(() => {
+        screen1.classList.remove('hidden-screen');
+        screen1.classList.add('active-screen');
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }, 300);
+    });
+  }
+});
+</script>
 </body>
 </html>
