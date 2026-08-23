@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>For My Dearest Amma 💅 Bebe Kutti</title>
+  
+  <!-- Romantic Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&amp;family=Fredoka:wght@400;500;600;700&amp;family=Pacifico&amp;family=Poppins:wght@300;400;500;600;700&amp;family=Sacramento&amp;display=swap">
+  
+  <!-- FontAwesome for cute icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Canvas Confetti Library -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<boda>
+
+  <!-- Floating Hearts Background Canvas -->
+  <canvas id="heartCanvas"></canvas>
+
+  <!-- Floating Background Ambient Bubbles/Sparkles -->
+  <div class="ambient-glow glow-1"></div>
+  <div class="ambient-glow glow-2"></div>
+  <div class="ambient-glow glow-3"></div>
+
+  <!-- Sound Toggle Button -->
+  <button id="musicToggleBtn" class="floating-music-btn" title="Toggle Romantic Melodies">
+    <i class="fa-solid fa-music"></i>
+    <span class="music-label">Music</span>
+  </button>
+
+  <!-- Container for interactive toast messages -->
+  <div id="toastContainer" class="toast-container"></div>
+
+  <!-- ================== SCREEN 1: THE APOLOGY ================== -->
+  <main id="screen1" class="screen active-screen">
+    <div class="glass-card apology-card">
+      <div class="mascot-container">
+        <!-- Cute animated bear apology badge & character -->
+        <div class="cute-badge">Special Message For My Queen 💝</div>
+        <div class="character-illustration">
+          <div class="cute-bear">
+            <div class="bear-ear left"></div>
+            <div class="bear-ear right"></div>
+            <div class="bear-face">
+              <div class="bear-blush left"></div>
+              <div class="bear-blush right"></div>
+              <div class="bear-eye left"><div class="pupil"></div></div>
+              <div class="bear-eye right"><div class="pupil"></div></div>
+              <div class="bear-snout">
+                <div class="bear-nose"></div>
+                <div class="bear-mouth"></div>
+              </div>
+            </div>
+            <div class="bear-paws">
+              <span class="pleading-hands">🥺👋👈</span>
+            </div>
+          </div>
+          <div class="floating-mini-heart h1">💕</div>
+          <div class="floating-mini-heart h2">🌶</div>
+          <div class="floating-mini-heart h3">✅</div>
+        </div>
+      </div>
+
+
+      <h1 class="main-title apology-text">
+        I am sorry amma <span class="heart-pulse">🥺💔</span>
+      </h1>
+
+
+      <div class="question-box">
+        <p class="question-text">will u accept my sorry ? 💖🥺</p>
+      </div>
+      
+      <p class="apology-subtext">
+        I promise I never meant to make you upset even for a second... You are my whole universe, my happiness, and my entire world! 🌶
+      </p>
+
+
+      <!-- Action Buttons Container -->
+      <div class="button-arena" id="buttonArena">
+        <button id="yesBtn" class="btn btn-yes">
+          <span class="btn-icon">💅</span>
+          <span class="btn-text">YES, I accept!</span>
+          <span class="sparkle-spark">✅</span>
+        </button>
+
+        <button id="noBtn" class="btn btn-no">
+          <span class="btn-icon">🥺</span>
+          <span class="btn-text">No</span>
+        </button>
+      </div>
+
+
+      <div class="hint-text">
+        <i class="fa-solid fa-sparkles"></i> <em>(Hint: Only one answer is destined for us! 💄)</em>
+      </div>
+    </div>
+  </main>
+
+  <!-- ================== SCREEN 2: THE CELEBRATION & PROPOSAL ================== -->
+  <section id="screen2" class="screen hidden-screen">
+    <div class="glass-card celebration-card">
+      <div class="celebration-badge">
+        <i class="fa-solid fa-crown"></i> My Forever Love & Life <i class="fa-solid fa-crown"></i>
+      </div>
+
+
+      <!-- Hero Animated Confession -->
+      <div class="proposal-hero">
+        <div class="animated-hearts-cluster">
+          <span class="cluster-emoji">💕</span>
+          <span class="cluster-emoji bounce-1">🢣/span>
+          <span class="cluster-emoji bounce-2">💉></span>
+          <span class="cluster-emoji bounce-3">🌶</span>
+          <span class="cluster-emoji bounce-4">✅</span>
+        </div>
+
+
+        <h1 class="love-announcement">
+          I love you bebe kutti <span class="glowing-hearts">💅🧩🌶</span>
+        </h1>
+
+        <p class="love-quote">
+          "From the deepest corners of my heart, you are my happiest thought, my sweetest dream, and my forever home." 💉,✅
+        </p>
+      </div>
+
+      <!-- Interactive Love Envelope -->
+      <div class="interactive-section">
+        <div class="envelope-wrapper" id="envelopeWrapper">
+          <div class="envelope" id="envelope">
+            <div class="envelope-flap"></div>
+            <div class="envelope-pocket"></div>
+            <div class="envelope-letter">
+              <div class="letter-header">Dear Amma (My Bebe Kutti) 💅,</div>
+              <div class="letter-body">
+                Thank you for being my light, my peace, and my sweetest joy. No matter what happens, my hand will always hold yours, and my heart will always beat your name. You are truly the most precious gift of my life! 🌶✅
+              </div>
+              <div class="letter-sign">Forever & Always Yours ❤︅</div>
+            </div>
+          </div>
+          <p class="tap-hint" id="envelopeHint"><i class="fa-solid fa-envelope-open-heart"></i> Tap envelope to open my heart letter 💝</p>
+        </div>
+      </div>
+
+
+      <!-- Sweet Reasons Grid -->
+      <div class="reasons-wrapper">
+        <h3 class="reasons-heading">✅ Why You Are My Everything ✅</h3>
+        <div class="reasons-grid">
+          <div class="reason-pill">
+            <span class="pill-icon">🌶</span>
+            <span>Your sweetest cute smile</span>
+          </div>
+          <div class="reason-pill">
+            <span class="pill-icon">🢣/span>
+            <span>Your warm, caring embrace</span>
+          </div>
+          <div class="reason-pill">
+            <span class="pill-icon">💥</span>
+            <span>The way you brighten my life</span>
+          </div>
+          <div class="reasons-pill">
+            <span class="pill-icon">💉></span>
+            <span>My dream forever and ever</span>
+          </div>
+        </div>
+      </div>
+
+
+      <!-- Interactive Love Blast Buttons -->
+      <div class="celebration-actions">
+        <button id="sendLoveBtn" class="btn btn-love-burst">
+          <i class="fa-solid fa-heart-circle-bolt"></i> Send Unlimited Kisses & Love! 💃💥
+        </button>
+        <button id="replayBtn" class="btn btn-replay">
+          <i class="fa-solid fa-rotate-left"></i> Relive the magic ✅
+        </button>
+      </div>
+
+      <div class="footer-note">
+        Made with infinite love & care just for you, my dearest bebe kutti 💥
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive Click Heart Spawner -->
+  <div id="heartBurstLayer"></div>
+
+
+  <script src="script.js"></script>
+</body>
+</html>
